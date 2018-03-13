@@ -6,50 +6,59 @@ body {
 
 h1 {
 	font-family: Lato, sans-serif;
-	font-size: 20pt;
-	color: white;
+	font-size: 18pt;
+	color: black;
+	line-height:20px; /* allows text to be centered vertically */
+	height: 20px;
 }
 
 .header {
-	background-color: #4C4C4C;
+	/*background-color: #4C4C4C;*/
 	margin: 0;
-	text-align: center;
-	padding: 10px;
 	border: none;
-
+	padding-bottom: 1px;
+	padding-top: 1px;
+	padding-left: 20px;
+	border-bottom: 1px solid #CCCCCC;
 }
 
 /* Info */
 .info {
-	height: 10vh;
-	margin: 0vh 10px 0px 10px;
-	font-size: 20px;
+	padding-top: 40px;
+	font-size: 40px;
 	text-align: center;
-	font-family: Helvetica;
+	font-family: Lato, sans-serif;
+	font-weight: bold;
+	line-height: 60px;
 }
 
 /* Search Bar */
 
 .searchDiv {
-	padding-top: 8vh;
+	padding-top: 40px;
 	text-align: center;
 }
 
 .searchField {
 	margin-top: 10px;
 	border: 1px solid #C1C4C7;
-	font-size: 20px;
+	border-radius: 8px;
+	font-size: 16px;
 	padding: 10px;
-	width: 50vw;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 10px 0 rgba(0, 0, 0, 0.09);
+	width: 350px;
+	height: 30px;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.045);
+	text-indent: 4px;
+	outline: none;
+	font-family: Lato, sans-serif;
 }
 
-.searchButtonWrap {
+.shareButtonWrap {
 	text-align: center;
 	padding-top: 100px;
 }
 
-.searchButton {
+.shareButton {
 	border: none;
 	background-color: #E6E6E6;
 	width: 150px;
@@ -57,5 +66,21 @@ h1 {
 	font-weight: bold;
 	color: #666666;
 	font-size: 12px;
-	border-radius: 3px;
+	border-radius: 5px;
+	/*font-family: Lato, sans-serif;*/
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: black;
+	font-family: Lato, sans-serif;
+	text-align: center;
+	margin-top: 100px;
+	color: white;
+	font-size: 12px;
+	height: 60px;
+	line-height: 25px;
+	padding-top: 10px;
 }
