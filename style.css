@@ -15,7 +15,6 @@ h1 {
 .header {
 	/*background-color: #4C4C4C;*/
 	margin: 0;
-	border: none;
 	padding-bottom: 1px;
 	padding-top: 1px;
 	padding-left: 20px;
@@ -70,17 +69,21 @@ h1 {
 	/*font-family: Lato, sans-serif;*/
 }
 
-.footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+.flex-footer {
+	/*position: fixed;
+	bottom: 0;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	flex-wrap: wrap;
+	align-content: space-between;
 	background-color: black;
 	font-family: Lato, sans-serif;
 	text-align: center;
 	margin-top: 100px;
 	color: white;
 	font-size: 12px;
-	height: 60px;
 	line-height: 25px;
-	padding-top: 10px;
+	margin-top: 143px;
 }
