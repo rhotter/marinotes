@@ -52,6 +52,10 @@ h1 {
 	font-family: Lato, sans-serif;
 }
 
+.searchField:hover {
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
 .shareButtonWrap {
 	text-align: center;
 	padding-top: 100px;
