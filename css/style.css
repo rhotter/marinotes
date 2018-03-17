@@ -87,6 +87,10 @@ h1 {
 	background-color: gray;
 }
 
+#error_text {
+	background-color: red;
+}
+
 
 /* Sharing Notes */
 
