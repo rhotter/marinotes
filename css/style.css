@@ -71,7 +71,7 @@ h1 {
     z-index: 1; /* High order of priority for overlap */
 	margin: 0 auto;
 	max-height: 100px; /*max size of dropdown*/
-	overflow-y: scroll;
+	overflow-y: auto;
 	text-align: left;
 }
 
