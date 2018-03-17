@@ -3,10 +3,12 @@ function filterFunction() {
 	var div = document.getElementById("searchDiv");
 	var a = document.getElementsByTagName("a"); // Upper case list
 
+	var match = false;
 	for(var i=0; i < a.length; i++) {
 		if (text !== "" && a[i].innerHTML.toUpperCase().indexOf(text) > -1) {
 			// Show it
 			a[i].style.display = "block";
+			match = true;
 		} else {
 			// Don't show it
 			a[i].style.display = "none";
@@ -17,5 +19,11 @@ function filterFunction() {
 		document.getElementById("shareBut").style.display = "none";
 	} else {
 		document.getElementById("shareBut").style.display = "block";
+	}
+
+	if (!match && text != "") {
+		document.getElementById("error").innerHTML = "<a id='error_text'>No match found</a>";
+		document.getElementById("error_text").style.display = "block";
+		document.getElementById("error_text").style.backgroundColor = "red";
 	}
 }
