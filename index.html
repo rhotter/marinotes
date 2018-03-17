@@ -18,7 +18,7 @@
 		<div class = "wrap">
 			<div class = "searchDiv">
 				<div>
-					<input type = "text" class = "searchField" placeholder = "Enter a class" oninput="filterFunction()" id ="myInput">
+					<input type = "text" class = "searchField" placeholder = "Enter a class" oninput="filterFunction()" onblur="erase()" onfocus="filterFunction()" id ="myInput">
 				</div>
 				<div class = "dropDown">
 					<a href="#">Calculus I</a>

@@ -29,3 +29,13 @@ function filterFunction() {
 		document.getElementById("error_text").style.display = "none";
 	}
 }
+
+function erase() {
+	var a = document.getElementsByTagName("a"); // Upper case list
+	for(var i=0; i < a.length; i++) {
+		// Don't show it
+		a[i].style.display = "none";
+	}
+	document.getElementById("myInput").style.boxShadow = "";
+
+}
