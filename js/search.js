@@ -2,9 +2,8 @@ function filterFunction() {
 	var text = document.getElementById("myInput").value.toUpperCase();
 	var div = document.getElementById("searchDiv");
 	var a = document.getElementsByTagName("a"); // Upper case list
-
 	var match = false;
-	for(var i=0; i < a.length; i++) {
+	for(var i=0; i < a.length-1; i++) { /* remove last a (error) */ 
 		if (text !== "" && a[i].innerHTML.toUpperCase().indexOf(text) > -1) {
 			// Show it
 			a[i].style.display = "block";
@@ -20,9 +19,9 @@ function filterFunction() {
 	} else {
 		document.getElementById("shareBut").style.display = "block";
 	}
-
 	if (!match && text != "") {
 		document.getElementById("error_text").style.display = "block";
+		console.log("no match")
 	}
 	else {
 		document.getElementById("error_text").style.display = "none";
