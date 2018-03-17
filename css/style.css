@@ -70,7 +70,7 @@ h1 {
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1; /* High order of priority for overlap */
 	margin: 0 auto;
-	max-height: 100px; /*max size of dropdown*/
+	max-height: 300px; /* max size of dropdown */
 	overflow-y: auto;
 	text-align: left;
 }
@@ -99,7 +99,7 @@ h1 {
 	text-align: center;
 	padding-top: 100px;
 	position: absolute;
-	top: 50px; /*defines position of the button*/
+	top: 50px; /* defines position of the button */
 	z-index: -10;
 	width: 100%;
 }
@@ -143,9 +143,9 @@ h1 {
 	text-align: center;
 }
 
-#indexPageSize{
+#indexPageSize {
 	height: 100%;
-	min-height: 700px; /*determines the page height and the distance from footer*/
+	min-height: 700px; /* determines the page height and the distance from footer */
 	min-width: 400px;
 	position: relative;
 }
