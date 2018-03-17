@@ -12,4 +12,10 @@ function filterFunction() {
 			a[i].style.display = "none";
 		}
 	}
+	//deals with making the button dispear 
+	if(text.length != 0) {
+		document.getElementById("shareBut").style.display = "none";
+	} else {
+		document.getElementById("shareBut").style.display = "block";
+	}
 }
