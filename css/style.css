@@ -96,7 +96,6 @@ h1 {
 
 .shareButton {
 	border: none;
-	position: static;
 	background-color: #E6E6E6;
 	width: 150px;
 	height: 40px;
@@ -105,7 +104,6 @@ h1 {
 	font-size: 12px;
 	border-radius: 5px;
 	z-index: 0;
-	/*font-family: Lato, sans-serif;*/
 }
 
 
