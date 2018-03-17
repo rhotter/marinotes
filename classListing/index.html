@@ -4,12 +4,39 @@
 	<title>Marinotes Class</title>
 	<link rel = "stylesheet" type = "text/css" href = "../css/style.css">
 	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-	<link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Google Material Design -->
+	<!-- Note when you want to add an MDL thing dynaimcally, you need to
+		docomponentHandler.upgradeElement(theThing); -->
+	<link rel="stylesheet" href="../mdl/material.css">
+	<script src="../mdl/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 	<div id="indexPageSize">
 		<div class = "header">
 			<h1><a href = "../index.html">Marinotes</a></h1>
+		</div>
+
+		<!-- Cards -->
+		<div class="card mdl-card mdl-shadow--2dp">
+			<!-- Background Image -->
+			<div class="mdl-card__title mdl-card--expand"></div>
+		  	
+			<!-- Text -->
+		  	<div class="mdl-card__supporting-text">
+		    	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		    	Aenan convallis.
+		  	</div>
+
+		  	<!-- Action to open -->
+		  	<div class="mdl-card__actions mdl-card--border">
+		    	<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+		      		Open Notes
+		    	</a>
+		  	</div>
+		</div>
 	</div>
 </body>
 </html>
