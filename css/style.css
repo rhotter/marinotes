@@ -41,9 +41,9 @@ h1 {
 	padding-top: 40px;
 	text-align: center;
 	display: block;
-	justify-content: center;
+	/*justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
+	flex-wrap: wrap;*/
 }
 
 .searchField {
@@ -68,10 +68,9 @@ h1 {
 .dropDown {
 	position: relative;
 	display: block;
-	/*background-color: blue;*/
 	width: 120px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1; /* High order of priority for overlap */
+    z-index: 1; /* High order of priority for overlap */
 	margin: 0 auto;
 }
 
@@ -97,6 +96,7 @@ h1 {
 
 .shareButton {
 	border: none;
+	position: static;
 	background-color: #E6E6E6;
 	width: 150px;
 	height: 40px;
@@ -104,6 +104,7 @@ h1 {
 	color: #666666;
 	font-size: 12px;
 	border-radius: 5px;
+	z-index: 0;
 	/*font-family: Lato, sans-serif;*/
 }
 
