@@ -137,3 +137,9 @@ h1 {
 	position: relative;
 	text-align: center;
 }
+
+#indexPageSize{
+	height: 100%;
+	min-height: 500px;
+	position: relative;
+}
