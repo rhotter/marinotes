@@ -17,9 +17,8 @@ function filterFunction() {
 			a[i].style.display = "none";
 		}
 	}
-	// deals with making the button dispear
 	
-	
+	// Error text
 	if (!match && text != "") {
 		document.getElementById("error_text").style.display = "block";
 	}
