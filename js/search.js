@@ -22,7 +22,6 @@ function filterFunction() {
 	
 	if (!match && text != "") {
 		document.getElementById("error_text").style.display = "block";
-		console.log("no match")
 	}
 	else {
 		document.getElementById("error_text").style.display = "none";
