@@ -3,4 +3,4 @@ actually use this please
 note that bugs can be noted down here
 
 - get links to work on search bar
-- template page for courses
+- template page for courses (first set up cards, then get filter working)

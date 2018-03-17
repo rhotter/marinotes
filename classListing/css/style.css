@@ -1,3 +1,9 @@
+/* Import Light Lato font */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,700');
+
+/* Link to go back home */
+
 a:link {
 	text-decoration: none;
 	color: black;
@@ -7,12 +13,26 @@ a:visited {
 	color:black;
 }
 
-/* Cards */
-.card.mdl-card {
-	width: 320px;
-	height: 320px;
+.subTitle {
+	font-weight: 100;
 }
-.card > .mdl-card__title {
-	background: url('../../photos/note_screenshot.jpg') top right 50% no-repeat white;
-	background-size: 320px;
+
+h2 {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	font-size: 60px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	color: white;
+}
+
+
+.head2 {
+	background-color: black;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	align-content: space-between;
 }
