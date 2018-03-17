@@ -40,6 +40,10 @@ h1 {
 .searchDiv {
 	padding-top: 40px;
 	text-align: center;
+	display: block;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .searchField {
@@ -62,8 +66,8 @@ h1 {
 
 /* DropDown content */
 .dropDown {
-	
 	position: absolute;
+	display: block;
 	/*background-color: blue;*/
 	width: 120px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -74,7 +78,7 @@ h1 {
 .dropDown a {
     display: none;
     color: black;
-    padding: 12px 16px;
+    padding: 10px 10px;
     text-decoration: none;
 }
 
