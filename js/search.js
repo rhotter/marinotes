@@ -22,8 +22,9 @@ function filterFunction() {
 	}
 
 	if (!match && text != "") {
-		document.getElementById("error").innerHTML = "<a id='error_text'>No match found</a>";
 		document.getElementById("error_text").style.display = "block";
-		document.getElementById("error_text").style.backgroundColor = "red";
+	}
+	else {
+		document.getElementById("error_text").style.display = "none";
 	}
 }
