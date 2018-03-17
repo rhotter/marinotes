@@ -3,6 +3,7 @@
 body {
 	margin: 0;
 	font-family: Lato, sans-serif;
+	height: 100%;
 }
 
 h1 {
@@ -126,7 +127,6 @@ h1 {
 	color: white;
 	font-size: 12px;
 	line-height: 25px;
-	margin-top: 100px;
 	position:absolute;
 	bottom:0;
 	width:100%;
@@ -140,6 +140,6 @@ h1 {
 
 #indexPageSize{
 	height: 100%;
-	min-height: 500px;
+	min-height: 700px; /*determines the page height and the distance from footer*/
 	position: relative;
 }
