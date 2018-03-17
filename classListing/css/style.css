@@ -9,11 +9,10 @@ a:visited {
 
 /* Cards */
 .card.mdl-card {
-  width: 320px;
-  height: 320px;
+	width: 320px;
+	height: 320px;
 }
 .card > .mdl-card__title {
-  color: #fff;
-  background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat #46B6AC;
+	background: url('../../photos/note_screenshot.jpg') top right 50% no-repeat white;
+	background-size: 320px;
 }
