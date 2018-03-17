@@ -1,7 +1,15 @@
 function filterFunction() {
 	// Get rid of share button
 	document.getElementById("shareBut").style.display = "none";
-	document.getElementById("myInput").style.boxShadow = "none";
+
+	// Show dropdown border
+	document.getElementById("dropDown").style.borderBottom = "1px solid #C1C4C7";
+	document.getElementById("dropDown").style.borderRight = "1px solid #C1C4C7";
+	document.getElementById("dropDown").style.borderLeft = "1px solid #C1C4C7";
+
+	// Change text field border to make remove round bottom edge
+	document.getElementById("myInput").style.borderBottomRightRadius = "0px";
+	document.getElementById("myInput").style.borderBottomLeftRadius = "0px";
 
 	var text = document.getElementById("myInput").value.toUpperCase();
 	var div = document.getElementById("searchDiv");
@@ -37,5 +45,11 @@ function erase() {
 	
 	// Re-show the share button
 	document.getElementById("shareBut").style.display = "block";
-	document.getElementById("myInput").style.boxShadow = "";
+
+	// Hide the border of the div
+	document.getElementById("dropDown").style.border = "none";
+
+	// Put back text field round bottom border
+	document.getElementById("myInput").style.borderBottomRightRadius = "8px";
+	document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
 }
