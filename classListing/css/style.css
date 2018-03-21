@@ -40,6 +40,11 @@ h2 {
 	align-content: space-between;
 }
 
+.filterBar{
+	height: 200px;
+	background-color: red;
+}
+
 /* Creating the styles for the cards */
 
 .cardFull {
@@ -51,8 +56,10 @@ h2 {
 	border-top-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
+	margin: 50px;
 }
 
 .cardPicture{
 	padding: 10px;
+	height: 50%;
 }
