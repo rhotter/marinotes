@@ -3,6 +3,7 @@
 <head>
 	<title>Marinotes Class</title>
 	<link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+	<script type="text/javascript" src="js/cards.js"></script>
 	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -18,19 +19,25 @@
 
 		<div>
 			<!-- Filter by teacher (like in an online store) -->
+			search toolbar
 		</div>
-
-		<!-- Cards -->
-		<a> <!-- The entire card should be clickable -->
-			<div>
-				<div>
-					<!-- Background Image -->
-				</div>
-			  	<div>
-			    	<!-- Teacher -->
-			  	</div>
+		<div id="cardHolder">
+			<!-- Cards (note that this is a test card and rest is created on its own) -->
+			<div onclick="myFunction()" class="cardFull"> <!-- The entire card should be clickable. might not be best done with link
+			use onClick event -->
+				<a>
+					<div class="cardPicture">
+						<img src="../photos/note_screenshot.jpg" style="width:100%;height:100%;">
+						the picture goes here
+						<!-- Background Image -->
+					</div>
+				  <div class="cardInfo">
+						Info goes here
+				    	<!-- TeachSer -->
+				  </div>
+				</a>
 			</div>
-		</a>
+		</div>
 	</div>
 </body>
 </html>
