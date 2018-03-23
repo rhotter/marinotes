@@ -19,8 +19,8 @@
 		<div class = "wrap">
 			<div class = "searchDiv">
 				<div>
-					<input type = "text" class = "searchField" placeholder = "Enter a class" oninput="filterFunction()" onblur="setTimeout(erase, 500)" onfocus="filterFunction()" id ="myInput">
-					<!--  I ADDED A BO BO FIX TO THE NO CLICK THING, WHEN WE SWITCH TO THE ONCLICK EVENT THE DELAY CAN BE MINIMAL, RIGHT NOW IT IS on release not click -->
+					<input type = "text" class = "searchField" placeholder = "Enter a class" oninput="filterFunction()" onblur="erase()" onfocus="filterFunction()" id ="myInput">
+					
 				</div>
 				<div class = "dropDown" id="dropDown">
 					<a href="https://www.nhl.com">Calculus I</a>
