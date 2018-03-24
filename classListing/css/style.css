@@ -53,8 +53,6 @@ h2 {
 }
 .cardFull {
 	position: absolute;
-	height: 250px;
-	width: 200px;
 	border: 1px solid #C1C4C7;
 	border-top-right-radius: 8px;
 	border-top-left-radius: 8px;

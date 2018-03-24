@@ -1,5 +1,10 @@
 //wonderful document that deals with creating and all the shit related to the cards
-function cardGenerate(left, top){
+
+var cardWidth = 200;
+var cardHeight = 250;
+
+
+function cardCreate(left, top){
   //start by creating the card holder and attributing neccesary properites
   var divCardFull = document.createElement("div");
   divCardFull.setAttribute('class', "cardFull");
@@ -8,6 +13,8 @@ function cardGenerate(left, top){
   //make it positioned where i want
   divCardFull.style.left = left + "px";
   divCardFull.style.top = top + "px";
+  divCardFull.style.height = cardHeight + "px";
+  divCardFull.style.width = cardWidth + "px";
 
   //lets add the picture div
   var divCardPicture = document.createElement("div");
@@ -32,5 +39,12 @@ function cardGenerate(left, top){
   divCardFull.appendChild(divCardInfo);
 
   document.getElementById("cardHolder").appendChild(divCardFull);
+
+}
+
+function cardPlace(num){
+  //lets start by getting their sizes and such
+var fullWidth = document.getElementsById("cardHolder").style.width;
+
 
 }
