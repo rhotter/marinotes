@@ -49,6 +49,7 @@ h2 {
 
 #cardHolder{
 	height: 100%;
+	width: 100%;
 	position: relative;
 }
 .cardFull {
@@ -59,7 +60,6 @@ h2 {
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
-	margin: 50px;
 }
 
 .cardPicture{

@@ -2,6 +2,9 @@
 
 var cardWidth = 200;
 var cardHeight = 250;
+var minPad = 20;
+var vertPad = 50;
+var maxRows = 10;
 
 
 function cardCreate(left, top){
@@ -43,8 +46,23 @@ function cardCreate(left, top){
 }
 
 function cardPlace(num){
-  //lets start by getting their sizes and such
-var fullWidth = document.getElementsById("cardHolder").style.width;
-
-
+  //lets start by getting their sizes and such callculating padding
+  var fullWidth = document.getElementById("cardHolder").clientWidth;
+  var numRow = Math.floor((fullWidth-minPad)/(cardWidth+minPad));
+  var pad = (fullWidth-(numRow*cardWidth))/(numRow+1);
+  //keep track of cards placed and break if reacehd desired number
+  var cardPlaced = 0
+  //loop trhough positions
+  for (var j = 0; j < maxRows; j++) {
+    var top = vertPad + (cardHeight+vertPad)*j;
+    for (var i = 0; i < numRow; i++) {
+      cardPlaced ++;
+      var left = pad + (cardWidth+pad)*i;
+      cardCreate(left, top);
+      if (cardPlaced == num) {
+        j=maxRows;
+        i=numRow;
+      }
+    }
+  }
 }
