@@ -1,9 +1,13 @@
 //wonderful document that deals with creating and all the shit related to the cards
-function cardGenerate(){
+function cardGenerate(left, top){
   //start by creating the card holder and attributing neccesary properites
   var divCardFull = document.createElement("div");
   divCardFull.setAttribute('class', "cardFull");
   //divCardFull.addEventListener("click", myFunction()); //calls function onClick
+
+  //make it positioned where i want
+  divCardFull.style.left = left + "px";
+  divCardFull.style.top = top + "px";
 
   //lets add the picture div
   var divCardPicture = document.createElement("div");

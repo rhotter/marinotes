@@ -47,8 +47,12 @@ h2 {
 
 /* Creating the styles for the cards */
 
-.cardFull {
+#cardHolder{
+	height: 100%;
 	position: relative;
+}
+.cardFull {
+	position: absolute;
 	height: 250px;
 	width: 200px;
 	border: 1px solid #C1C4C7;
