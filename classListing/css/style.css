@@ -28,6 +28,12 @@ h2 {
 
 .header {
 	border: none;
+	position: sticky;
+	top: 0px;
+	background-color: white;
+	z-index: 1;
+	border-bottom: 1px solid #C1C4C7;
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
 }
 
 .head2 {
@@ -60,6 +66,9 @@ h2 {
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
+}
+.cardFull:hover {
+	cursor: pointer;
 }
 
 .cardPicture{

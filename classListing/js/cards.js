@@ -11,7 +11,7 @@ function cardCreate(left, top){
   //start by creating the card holder and attributing neccesary properites
   var divCardFull = document.createElement("div");
   divCardFull.setAttribute('class', "cardFull");
-  //divCardFull.addEventListener("click", myFunction()); //calls function onClick
+  divCardFull.addEventListener('click', function(){ openNotes();}, false); //calls function onClick
 
   //make it positioned where i want
   divCardFull.style.left = left + "px";
@@ -65,4 +65,9 @@ function cardPlace(num){
       }
     }
   }
+}
+
+
+function openNotes(){
+  console.log('works');
 }

@@ -7,3 +7,7 @@ The problem is I have an "onBlur()" event handler for the <input> tag. The handl
 
 - template page for courses (first set up cards, then get filter working)
 - move the highlighted class (in search bar) up/down using up/down arrow keys
+
+
+PDF.js library can be used if we need
+(allows us to display pdfs and have a next page previous page system which can be nice
