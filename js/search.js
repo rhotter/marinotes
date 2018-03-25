@@ -25,7 +25,7 @@ function filterFunction() {
 			a[i].style.display = "none";
 		}
 	}
-	
+
 	// Error text
 	if (!match && text != "") {
 		document.getElementById("error_text").style.display = "block";
@@ -36,20 +36,33 @@ function filterFunction() {
 }
 
 function erase() {
-	var a = document.getElementsByTagName("a"); // Upper case list
-	for(var i=0; i < a.length; i++) {
-		// Don't show it
-		a[i].style.display = "none";
-	}
-	document.getElementById("myInput").style.boxShadow = "";
-	
-	// Re-show the share button
-	document.getElementById("shareBut").style.display = "block";
+	//attepmt at fixing the disapearing shit
+  var c = window.getComputedStyle(document.getElementById('dropDown')).getPropertyValue('border-top-style');
 
-	// Hide the border of the div
-	document.getElementById("dropDown").style.border = "none";
+  if (c === 'hidden') {
+      //alert('Mouse in box');
+			//do nothing
+  } else {
+      //alert('Mouse not in box');
+			var a = document.getElementsByTagName("a"); // Upper case list
+			for(var i=0; i < a.length; i++) {
+				// Don't show it
+				a[i].style.display = "none";
+			}
+			document.getElementById("myInput").style.boxShadow = "";
 
-	// Put back text field round bottom border
-	document.getElementById("myInput").style.borderBottomRightRadius = "8px";
-	document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
+			// Re-show the share button
+			document.getElementById("shareBut").style.display = "block";
+
+			// Hide the border of the div
+			document.getElementById("dropDown").style.borderBottom = "none";
+
+			// Put back text field round bottom border
+			document.getElementById("myInput").style.borderBottomRightRadius = "8px";
+			document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
+  }
+
+
+
+
 }
