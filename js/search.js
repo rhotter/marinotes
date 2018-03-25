@@ -41,7 +41,7 @@ function erase() {
 
   if (c === 'hidden') {
       //alert('Mouse in box');
-			//do nothing
+			document.getElementById('myInput').focus();
   } else {
       //alert('Mouse not in box');
 			var a = document.getElementsByTagName("a"); // Upper case list
