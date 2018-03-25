@@ -41,6 +41,7 @@ function erase() {
 
   if (c === 'hidden') {
       //alert('Mouse in box');
+			//place cursor back in the input
 			document.getElementById('myInput').focus();
   } else {
       //alert('Mouse not in box');
