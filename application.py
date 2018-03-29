@@ -3,27 +3,38 @@ import csv
 
 app = Flask(__name__)
 
-classes = ['Calculus I', 'Calculus II', 'Calculus III', 'Linear Algebra', 'Mechanics', 'English']
+# classes = ['Calculus I', 'Calculus II', 'Calculus III', 'Linear Algebra', 'Mechanics', 'English']
 
+def getClasses():
+	file = open("static/csv/classes.csv",'r') # Class CSV is classes.csv
+	reader = csv.reader(file)			
+	# CSV with rows as [teacher, author, upload date]
+	classes=[]
+	for row in reader:
+		classes.append(row[0])
+	file.close()
+	return classes[1:]
 
 @app.route("/")
 def index():
+	classes = getClasses()
 	return render_template("index.html", classes=classes)
 
 @app.route("/class/<course>")
 def course(course):
-	for c in classes:
-		if c.replace(' ','') == course:
+	classes = getClasses()
+	for c_spaces in classes:
+		c=c_spaces.replace(' ','')
+		if c == course:
 			# CSV stuff. Will need CSV files for each course
-
-			# file = open("{}.csv".format(c),'r')
-			# reader = csv.reader(file)
+			file = open("static/csv/{}.csv".format(c),'r')
+			reader = csv.reader(file)
 			
-			# # CSV with rows as [teacher, author, upload date]
-			# cards=[]
-			# for row in reader:
-			# 	cards.append(row)
-			# file.close()
+			# CSV with rows as [teacher, author, upload date]
+			cards=[]
+			for row in reader:
+				cards.append(row)
+			file.close()
 			return render_template("class.html", course=c)
 	abort(404)
 
