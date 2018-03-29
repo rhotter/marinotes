@@ -35,5 +35,5 @@ def course(course):
 			for row in reader:
 				cards.append(row)
 			file.close()
-			return render_template("class.html", course=c)
+			return render_template("class.html", course=c_spaces, cards=cards)
 	abort(404)
