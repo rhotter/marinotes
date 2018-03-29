@@ -37,17 +37,3 @@ def course(course):
 			file.close()
 			return render_template("class.html", course=c)
 	abort(404)
-
-
-# @app.route("/", methods=["POST"])
-# def register():
-
-# @app.route("/zuck")
-# def zuck():
-# 	return render_template("zuck.html")
-
-# request.form.get("name")
-# import csv
-# file = open(".csv","a")
-# writer = csv.writer(file)
-# writer.writerow((something,something,something))
