@@ -2,8 +2,12 @@
 <html style = "height: 100%;">
 <head>
 	<title>Marinotes</title>
-	<link rel = "stylesheet" type = "text/css" href = "css/style.css">
-	<script type="text/javascript" src="js/search.js"></script>
+	
+	<!-- Some criptic flask shit to import HTML/CSS -->
+	<link rel = "stylesheet" type = "text/css" href = "{{url_for('static', filename='css/style.css') }}">
+	<script type="text/javascript" src="{{url_for('static', filename='js/search.js') }}"></script>
+	
+	<!-- Works on mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -23,12 +27,15 @@
 
 				</div>
 				<div class = "dropDown" id="dropDown">
-					<a href="classListing/index.html">Calculus I</a>
+					{% for class in classes %}
+					<a href="/{{class.replace(' ','')}}">{{class}}</a>
+					{% endfor %}
+					<!-- <a href="classListing/index.html">Calculus I</a>
 					<a href="#">Calculus II</a>
 					<a href="#">Linear Algebra</a>
 					<a href="#">Mechanics</a>
 					<a href="#">General Chemistry I</a>
-					<a href="#">General Chemistry II</a>
+					<a href="#">General Chemistry II</a> -->
 					<a id='error_text'>No match found</a>
 				</div>
 			</div>

@@ -2,8 +2,7 @@ List of things left to do or implement
 actually use this please
 note that bugs can be noted down here
 
-- get links to work on search bar
-The problem is I have an "onBlur()" event handler for the <input> tag. The handler checks if you click out of the text field and closes the menu if so. But when you click on a button on the dropdown, it triggers the onBlur() since it's a click outside the textfield. So it closes the dropdown menu before it can redirect to the link.
+- Why are cards generated from JS? They can be in HTML but hidden using JS
 
 - template page for courses (first set up cards, then get filter working)
 - move the highlighted class (in search bar) up/down using up/down arrow keys
