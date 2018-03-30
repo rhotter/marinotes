@@ -2,11 +2,14 @@ List of things left to do or implement
 actually use this please
 note that bugs can be noted down here
 
-- Why are cards generated from JS? They can be in HTML but hidden using JS
-
-- template page for courses (first set up cards, then get filter working)
+- get cards displayed properly using CSS grid
+- have shop-like filter for teachers
+- add cancel icon to search bar, and have search bar reset when page is reloaded
 - move the highlighted class (in search bar) up/down using up/down arrow keys
+- when card is clicked, have card expand (not a seperate page), showing:
+    • a nice table of contents (without page numbers; it would just have the sections — each section is it's own PDF file - and the subtopics in that section)
+    • a nice list of files to download
+    • a cancel icon to collapse the expanded card
+- set up upload of documents part --> raffi
 
-
-PDF.js library can be used if we need
-(allows us to display pdfs and have a next page previous page system which can be nice
+PDF.js library can be used if we need --> no need. PDF files will just be downloaded
