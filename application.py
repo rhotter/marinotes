@@ -37,3 +37,7 @@ def course(course):
 			file.close()
 			return render_template("class.html", course=c_spaces, cards=cards)
 	abort(404)
+
+@app.route("/share")
+def share():
+	return render_template("share.html")
