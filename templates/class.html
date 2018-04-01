@@ -19,21 +19,24 @@
 
 		<div class="filterBar">
 			<!-- Filter by teacher (like in an online store) -->
-			Filter toolbar - checkboxes for teacher
+			<!-- Filter toolbar - checkboxes for teacher -->
 		</div>
 		<div id="cardHolder">
-			<!--Cards (note that this is a test card and rest is created on its own) -->
-			{% for i in range(0, cards|length+4) %}
-			<div onclick="myFunction()" class="cardFull"> 
-				<!--The entire card should be clickable. might not be best done with link use onClick event -->
-				<div class="cardPicture">
-					<img src="../photos/note_screenshot.jpg" style="width:100%;height:100%;">
+			<div class = "row">
+				{% for i in range(0,3) %}
+				<div onclick="myFunction()" class="cardFull">
+					<div class="cardTable">
+						<!--The entire card should be clickable. might not be best done with link use onClick event -->
+						<div class="cardPicture">
+							<img src="../static/photos/note_screenshot.jpg" style="width:20%; text-align: center;">
+						</div>
+						<div class="cardInfo">
+							Class name! <br> teacher name <br> by student name
+						</div>
+					</div>
 				</div>
-				<div class="cardInfo">
-					Class name! <br> teachEr name <br> by student name
-				</div>
-			{% endfor %}
-		</div>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </body>

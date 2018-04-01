@@ -13,3 +13,7 @@ note that bugs can be noted down here
 - set up upload of documents part --> raffi
 
 PDF.js library can be used if we need --> no need. PDF files will just be downloaded
+
+Jinja for cards:
+{% for i in range(0, cards|length) %}
+{% endfor %}

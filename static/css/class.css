@@ -37,8 +37,7 @@ h2 {
 }
 
 .filterBar{
-	height: 200px;
-	/*background-color: red;*/
+	height: 50px;
 }
 
 /* Creating the styles for the cards */
@@ -47,8 +46,36 @@ h2 {
 	height: 100%;
 	width: 100%;
 	position: relative;
+	display: table;
 }
+
+.row {
+	display: table-row;
+
+}
+
 .cardFull {
+	background-color: #f2f2f2;
+	display: table-cell;
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+}
+
+.cardTable {
+	display: table;
+}
+
+.cardPicture {
+	display: table-row;
+	align-items: center;
+}
+
+.cardInfo {
+	display: table-row;
+}
+
+/*.cardFull {
 	position: absolute;
 	border: 1px solid #C1C4C7;
 	border-top-right-radius: 8px;
@@ -67,3 +94,4 @@ h2 {
 	padding: 10px;
 	height: 50%;
 }
+*/
