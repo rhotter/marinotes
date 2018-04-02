@@ -20,6 +20,7 @@
 		<div class="filterBar">
 			<!-- Filter by teacher (like in an online store) -->
 			<!-- Filter toolbar - checkboxes for teacher -->
+			Filter
 		</div>
 		<div id="cardHolder">
 			<div class = "row">
@@ -28,14 +29,52 @@
 					<div class="cardTable">
 						<!--The entire card should be clickable. might not be best done with link use onClick event -->
 						<div class="cardPicture">
-							<img src="../static/photos/note_screenshot.jpg" style="width:20%; text-align: center;">
+							<div class="subCardPicture">
+								<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+							</div>
 						</div>
 						<div class="cardInfo">
-							Class name! <br> teacher name <br> by student name
+							<div class="subCardInfo">
+								<div class="teacherName">
+									Teacher name
+								</div>
+								<div class="studentName">
+									Student name
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				{% endfor %}
+			</div>
+			<div class = "row">
+				{% for i in range(0,3) %}
+				<div onclick="myFunction()" class="cardFull">
+					<div class="cardTable">
+						<!--The entire card should be clickable. might not be best done with link use onClick event -->
+						<div class="cardPicture">
+							<div class="subCardPicture">
+								<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+							</div>
+						</div>
+						<div class="cardInfo">
+							<div class="subCardInfo">
+								<div class="teacherName">
+									Teacher name
+								</div>
+								<div class="studentName">
+									Student name
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class = "flex-footer">
+			<div>
+				&#9400; 2018 Marinotes<br>Made by batman, anonIMOous and a magician.
 			</div>
 		</div>
 	</div>

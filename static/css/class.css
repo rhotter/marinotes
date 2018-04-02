@@ -1,7 +1,3 @@
-/* Import Light Lato font */
-
-@import url('https://fonts.googleapis.com/css?family=Lato:300,700');
-
 /* Link to go back home */
 
 a:link {
@@ -28,7 +24,7 @@ h2 {
 
 .head2 {
 	background-color: black;
-	height: 150px;
+	height: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -36,26 +32,34 @@ h2 {
 	align-content: space-between;
 }
 
-.filterBar{
-	height: 50px;
+.filterBar {
+	margin: 15px 10px 5px 10px;
+	padding-bottom: 15px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCCCCC;
+	border-bottom-width: 1px;
+	color: #666666;
+	font-size: 16px;
+	font-weight: 300;
 }
 
 /* Creating the styles for the cards */
 
-#cardHolder{
+#cardHolder {
 	height: 100%;
-	width: 100%;
+	max-width: 100%;
 	position: relative;
 	display: table;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 110px
 }
 
 .row {
 	display: table-row;
-
 }
 
 .cardFull {
-	background-color: #f2f2f2;
 	display: table-cell;
 	border-style: solid;
 	border-width: 5px;
@@ -63,16 +67,51 @@ h2 {
 }
 
 .cardTable {
+	background-color: #f2f2f2;
 	display: table;
+	padding: 30px 10px 10px 10px;
+}
+
+.cardTable:hover {
+	cursor: pointer;
+	background-color: #E2E2E2;
 }
 
 .cardPicture {
 	display: table-row;
-	align-items: center;
+}
+
+.subCardPicture {
+	text-align: center;
+}
+
+.cardPictureImg {
+	width:50%;
+	margin: auto;
+	margin-bottom: 30px;
+	border: solid #E2E2E2;
+	border-width: 1px;
 }
 
 .cardInfo {
 	display: table-row;
+	text-align: center;
+}
+
+.subCardInfo {
+	padding-bottom: 30px;
+}
+
+.teacherName {
+	font-weight: 400;
+	font-size: 22px;
+	padding-bottom: 10px;
+}
+
+.studentName {
+	font-weight: 300;
+	color: #666666;
+	font-size: 16px;
 }
 
 /*.cardFull {
