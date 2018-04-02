@@ -15,26 +15,27 @@
 		<div class = "header">
 			<h1>Marinotes</h1>
 		</div>
-
-		<div class = "info">
-			Marianopolis notes.<br>For you.
-		</div>
-
-		<div class = "wrap">
-			<div class = "searchDiv">
-				<div>
-					<input type = "text" class = "searchField" id="myInput" placeholder = "Enter a class" oninput="filterFunction()" onblur="erase()" onfocus="filterFunction()">
-
-				</div>
-				<div class = "dropDown" id="dropDown">
-					{% for class in classes %}
-					<a href="/class/{{class.replace(' ','')}}">{{class}}</a>
-					{% endfor %}
-					<a id='error_text'>No match found</a>
-				</div>
+		<div>
+			<div class = "info">
+				Marianopolis notes.<br>For you.
 			</div>
-			<div class = "shareButtonWrap" id="shareBut">
-				<button class = "shareButton">Share your notes</button>
+
+			<div class = "wrap">
+				<div class = "searchDiv">
+					<div>
+						<input type = "text" class = "searchField" id="myInput" placeholder = "Enter a class" oninput="filterFunction()" onblur="erase()" onfocus="filterFunction()">
+
+					</div>
+					<div class = "dropDown" id="dropDown">
+						{% for class in classes %}
+						<a href="/class/{{class.replace(' ','')}}">{{class}}</a>
+						{% endfor %}
+						<a id='error_text'>No match found</a>
+					</div>
+				</div>
+				<div class = "shareButtonWrap" id="shareBut">
+					<button class = "shareButton">Share your notes</button>
+				</div>
 			</div>
 		</div>
 
