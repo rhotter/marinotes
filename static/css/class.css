@@ -48,24 +48,42 @@ h2 {
 /* Creating the styles for the cards */
 
 #cardHolder {
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+
 	height: 100%;
 	max-width: 100%;
 	position: relative;
-	display: table;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-bottom: 110px
+	
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 110px;
 }
 
-.row {
-	display: table-row;
+@media (min-width: 1000px) {
+	#cardHolder {
+		grid-template-columns: auto auto auto auto;
+	}
 }
 
-.cardFull {
-	display: table-cell;
-	border-style: solid;
-	border-width: 5px;
-	border-color: white;
+@media (min-width: 700px) and (max-width: 999px) {
+	#cardHolder {
+		grid-template-columns: auto auto auto;
+	}
+}
+
+@media (min-width: 500px) and (max-width: 699px) {
+	#cardHolder {
+		grid-template-columns: auto auto;
+	}
+}
+
+@media (max-width: 499px) {
+	#cardHolder {
+		grid-template-columns: auto;
+	}
 }
 
 .cardTable {
@@ -115,24 +133,3 @@ h2 {
 	color: #666666;
 	font-size: 16px;
 }
-
-/*.cardFull {
-	position: absolute;
-	border: 1px solid #C1C4C7;
-	border-top-right-radius: 8px;
-	border-top-left-radius: 8px;
-	border-bottom-right-radius: 8px;
-	border-bottom-left-radius: 8px;
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.05);
-	height: 250px;
-	width: 200px;
-}
-.cardFull:hover {
-	cursor: pointer;
-}
-
-.cardPicture{
-	padding: 10px;
-	height: 50%;
-}
-*/

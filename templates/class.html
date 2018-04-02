@@ -22,55 +22,32 @@
 			<!-- Filter toolbar - checkboxes for teacher -->
 			Filter
 		</div>
+		
+		<!-- Holder for all cards -->
 		<div id="cardHolder">
-			<div class = "row">
-				{% for i in range(0,3) %}
-				<div onclick="myFunction()" class="cardFull">
-					<div class="cardTable">
-						<!--The entire card should be clickable. might not be best done with link use onClick event -->
-						<div class="cardPicture">
-							<div class="subCardPicture">
-								<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
-							</div>
+			
+			{% for i in range(0,7) %}
+			<!-- Individual cards -->
+			<div onclick="myFunction()" class="cardFull">
+				<div class="cardTable">
+					<div class="cardPicture">
+						<div class="subCardPicture">
+							<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
 						</div>
-						<div class="cardInfo">
-							<div class="subCardInfo">
-								<div class="teacherName">
-									Teacher name
-								</div>
-								<div class="studentName">
-									Student name
-								</div>
+					</div>
+					<div class="cardInfo">
+						<div class="subCardInfo">
+							<div class="teacherName">
+								Teacher name
+							</div>
+							<div class="studentName">
+								Student name
 							</div>
 						</div>
 					</div>
 				</div>
-				{% endfor %}
 			</div>
-			<div class = "row">
-				{% for i in range(0,3) %}
-				<div onclick="myFunction()" class="cardFull">
-					<div class="cardTable">
-						<!--The entire card should be clickable. might not be best done with link use onClick event -->
-						<div class="cardPicture">
-							<div class="subCardPicture">
-								<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
-							</div>
-						</div>
-						<div class="cardInfo">
-							<div class="subCardInfo">
-								<div class="teacherName">
-									Teacher name
-								</div>
-								<div class="studentName">
-									Student name
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
+			{% endfor %}
 		</div>
 		<div class = "flex-footer">
 			<div>
