@@ -4,11 +4,10 @@
 	<title>{{course}}</title>
 	<link rel = "stylesheet" type = "text/css" href = "../static/css/class.css">
 	<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css">
-	<script type="text/javascript" src="../static/js/cards.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<div id="indexPageSize">
+	<div class="indexPageSize">
 		<div class = "header_class">
 			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | {{course}}</span></h1>
 		</div>
@@ -25,8 +24,7 @@
 		
 		<!-- Holder for all cards -->
 		<div id="cardHolder">
-			
-			{% for i in range(0,7) %}
+			{% for i in range(0, cards|length) %}
 			<!-- Individual cards -->
 			<div onclick="myFunction()" class="cardFull">
 				<div class="cardTable">
@@ -38,10 +36,10 @@
 					<div class="cardInfo">
 						<div class="subCardInfo">
 							<div class="teacherName">
-								Teacher name
+								{{ cards[i][0] }}
 							</div>
 							<div class="studentName">
-								Student name
+								{{ cards[i][1] }}
 							</div>
 						</div>
 					</div>

@@ -59,24 +59,24 @@ h2 {
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
-	padding-bottom: 110px;
+	padding-bottom: 115px;
 }
 
 @media (min-width: 1000px) {
 	#cardHolder {
-		grid-template-columns: auto auto auto auto;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
 }
 
 @media (min-width: 700px) and (max-width: 999px) {
 	#cardHolder {
-		grid-template-columns: auto auto auto;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }
 
 @media (min-width: 500px) and (max-width: 699px) {
 	#cardHolder {
-		grid-template-columns: auto auto;
+		grid-template-columns: 1fr 1fr;
 	}
 }
 

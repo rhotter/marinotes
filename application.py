@@ -27,9 +27,9 @@ def course(course):
 		c=c_spaces.replace(' ','')
 		if c == course:
 			# CSV stuff. Will need CSV files for each course
-			file = open("static/csv/{}.csv".format(c),'r')
+			file = open("static/csv/{}.csv".format(c),'r', encoding='utf-8-sig')
 			reader = csv.reader(file)
-			
+
 			# CSV with rows as [teacher, author, upload date]
 			cards=[]
 			for row in reader:
