@@ -67,10 +67,6 @@ h1 {
 	outline: none;
 	font-family: Lato, sans-serif;
 }
-/*
-.searchField:hover {
-	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15), 0 6px 10px 0 rgba(0, 0, 0, 0.15);
-}*/
 
 /* DropDown content */
 .dropDown {
@@ -137,9 +133,7 @@ h1 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
 	align-content: space-between;
-	/*background-color: black;*/
 	font-family: Lato, sans-serif;
 	text-align: center;
 	/*color: #666666;*/
