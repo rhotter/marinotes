@@ -62,8 +62,4 @@ function erase() {
 			document.getElementById("myInput").style.borderBottomRightRadius = "8px";
 			document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
   }
-
-
-
-
 }
