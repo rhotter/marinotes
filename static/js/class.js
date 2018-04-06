@@ -55,4 +55,10 @@ function sortTeach(){
       document.getElementsByClassName('cardFull')[i].style.display = "none";
     }
   }
+
+  if (check.length == 1) {
+    for (var i = 0; i < tch.length; i++) {
+      document.getElementsByClassName('cardFull')[i].style.display = "block";
+    }
+  }
 }
