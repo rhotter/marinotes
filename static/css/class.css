@@ -43,8 +43,20 @@ h2 {
 	color: #666666;
 	font-size: 16px;
 	font-weight: 300;
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	grid-template-columns: auto;
+
+	position: relative;
+
+
+
 }
 
+.teacher{
+
+}
 /* Creating the styles for the cards */
 
 #cardHolder {
@@ -55,7 +67,7 @@ h2 {
 	height: 100%;
 	max-width: 100%;
 	position: relative;
-	
+
 	padding-top: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
