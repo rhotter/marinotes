@@ -3,7 +3,7 @@ var teach = ["error"];
 function teacherLoad(){
   var tch = document.getElementsByClassName('teacherName');
   for (var i = 0; i < tch.length; i++) {
-    if (tch[i].innerHTML.indexOf(teach) > -1){
+    if (teach.indexOf(tch[i].innerHTML) > -1){
       //do nothing
     } else {
       teach.push(tch[i].innerHTML);
@@ -40,7 +40,7 @@ function sortTeach(){
   var check = ["not really there"];
   for (var i = 1; i < teach.length; i++) {
     if (document.getElementById(teach[i]).checked == true) {
-      check.push(teach[i].toUpperCase());
+      check.push(teach[i]);
     }
   }
   //get all the cards note that im using the fact that there r equaly as many
@@ -48,17 +48,11 @@ function sortTeach(){
   var tch = document.getElementsByClassName('teacherName');
 
   for (var i = 0; i < tch.length; i++) {
-    if (tch[i].innerHTML.toUpperCase().indexOf(check) > -1){
+    if (check.indexOf(tch[i].innerHTML) > -1){
       //so it
-      document.getElementsByClassName('teacherName')[i].style.display = "block";
-      console.log("show");
+      document.getElementsByClassName('cardFull')[i].style.display = "block";
     } else {
-      document.getElementsByClassName('teacherName')[i].style.display = "none";
-      console.log("hide");
+      document.getElementsByClassName('cardFull')[i].style.display = "none";
     }
-
-    console.log(check[1]);
-    console.log(tch[2].innerHTML.toUpperCase());
-
   }
 }
