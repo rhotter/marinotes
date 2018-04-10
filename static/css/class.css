@@ -34,28 +34,28 @@ h2 {
 	align-content: space-between;
 }
 
+.filtHead {
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+
 .filterBar {
-	margin: 15px 10px 5px 10px;
+	margin: 15px 10px 5px 15px;
 	padding-bottom: 15px;
 	border-bottom-style: solid;
 	border-bottom-color: #CCCCCC;
 	border-bottom-width: 1px;
+	position: relative;
+}
+
+#filtBar{
 	color: #666666;
 	font-size: 16px;
 	font-weight: 300;
 	display: grid;
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
-	grid-template-columns: auto;
-
-	position: relative;
-
-
-
-}
-
-.teacher{
-
+	grid-template-columns: 175px 175px;
 }
 /* Creating the styles for the cards */
 
