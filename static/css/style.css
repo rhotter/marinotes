@@ -101,6 +101,9 @@ h1 {
 .dropDown:hover{
 		border-top-style: hidden; /*using this for some chekky fix raffis fuck up */
 }
+#error_text:hover{
+	background-color: inherit;
+}
 
 /* Sharing Notes */
 

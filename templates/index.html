@@ -2,15 +2,15 @@
 <html style = "height: 100%;">
 <head>
 	<title>Marinotes</title>
-	
+
 	<!-- Some criptic flask shit to import HTML/CSS -->
 	<link rel = "stylesheet" type = "text/css" href = "{{url_for('static', filename='css/style.css') }}">
 	<script type="text/javascript" src="{{url_for('static', filename='js/search.js') }}"></script>
-	
+
 	<!-- Works on mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onkeypress="enterFunction(event)">
 	<div class="indexPageSize">
 		<div class = "header">
 			<h1>Marinotes</h1>

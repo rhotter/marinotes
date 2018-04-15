@@ -15,8 +15,8 @@ function filterFunction() {
 	var div = document.getElementById("searchDiv");
 	var a = document.getElementsByTagName("a"); // Upper case list
 	var match = false;
-	for(var i=0; i < a.length-1; i++) { /* remove last a (error) */
-		if (a[i].innerHTML.toUpperCase().indexOf(text) > -1) {
+	for(var i=0; i < a.length-1; i++) { /* remove last a (error).... i also added a thing to hide some things as my mom said */
+		if (a[i].innerHTML.toUpperCase().indexOf(text) == 0 || a[i].innerHTML.toUpperCase().indexOf(" "+text) > -1) {
 			// Show it
 			a[i].style.display = "block";
 			match = true;
@@ -62,4 +62,11 @@ function erase() {
 			document.getElementById("myInput").style.borderBottomRightRadius = "8px";
 			document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
   }
+}
+
+///the enter enterFunction
+function enterFunction(event){
+	if (event.keyCode == 13 || event.which == 13){
+		//the enter key was pressed
+	}
 }
