@@ -110,7 +110,7 @@ function arrowFunction(event){
 }
 
 
-
+//this function gets all the displayed classes
 function getOptions(){
 	var clList = new Array();
 	var toSort = document.getElementsByClassName("options");
@@ -122,12 +122,15 @@ function getOptions(){
 	return clList;
 }
 
+
+//this function makes sure that the selection is within the bounds
 function selRange(num){
 	if (num < 0) {num = 0;}
 	if (num > getOptions().length) {num = getOptions().length;}
 	return num;
 }
 
+//highlights selection by arrows
 function hiSelection(ind){
 	if (selection < getOptions().length){
 		for (var i = 0; i < getOptions().length; i++) {
@@ -139,7 +142,7 @@ function hiSelection(ind){
 	}
 }
 
-
+//highlights selection by mouse
 function hi(ele){
 	selection = getOptions().indexOf(ele);
 	for (var i = 0; i < getOptions().length; i++) {
@@ -148,6 +151,12 @@ function hi(ele){
 	ele.style.backgroundColor = "#B3B3B3";
 }
 
+
+//erases on reload
+function eraseText(){
+	document.getElementById("myInput").value = "";
+}
+//some garbage that is yet to start working
 /*
 function scrolSel(dirct){
 
