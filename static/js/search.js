@@ -58,7 +58,7 @@ function erase() {
   } else {
       //alert('Mouse not in box');
 			var a = document.getElementsByTagName("a"); // Upper case list
-			for(var i=0; i < a.length; i++) {
+			for(var i=1; i < a.length; i++) {
 				// Don't show it
 				a[i].style.display = "none";
 			}
