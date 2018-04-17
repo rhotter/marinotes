@@ -1,6 +1,11 @@
+var dropViz = false;
+
 function filterFunction() {
 	// Get rid of share button
 	document.getElementById("shareBut").style.display = "none";
+
+	//used for the arrows
+	dropViz = true;
 
 	// Show dropdown border
 	document.getElementById("dropDown").style.borderBottom = "1px solid #C1C4C7";
@@ -39,6 +44,9 @@ function erase() {
 	//attepmt at fixing the disapearing shit
   var c = window.getComputedStyle(document.getElementById('dropDown')).getPropertyValue('border-top-style');
 
+	//used for arrows
+	dropViz = false;
+
   if (c === 'hidden') {
       //alert('Mouse in box');
 			//place cursor back in the input
@@ -66,7 +74,36 @@ function erase() {
 
 ///the enter enterFunction
 function enterFunction(event){
-	if (event.keyCode == 13 || event.which == 13){
-		//the enter key was pressed
+	if (dropViz){
+		if (event.keyCode == 13 || event.which == 13){
+			//the enter key was pressed
+			console.log("enter");
+		}
 	}
+}
+
+function arrowFunction(event){
+	if (dropViz){
+		if (event.keyCode == 40){
+			//the down key was pressed
+			var classList = getOptions();
+			classList[0].style.color = "red";
+		}
+		if (event.keyCode == 38){
+			//the up key was pressed
+			console.log("up");
+		}
+	}
+}
+
+
+function getOptions(){
+	var clList = new Array();
+	var toSort = document.getElementsByClassName("options");
+	for (var i = 0; i < toSort.length; i++) {
+		if (window.getComputedStyle(toSort[i]).getPropertyValue('display') == "block"){
+			clList.push(toSort[i]);
+		}
+	}
+	return clList;
 }

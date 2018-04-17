@@ -10,7 +10,7 @@
 	<!-- Works on mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onkeypress="enterFunction(event)">
+<body onkeypress="enterFunction(event)" onkeydown="arrowFunction(event)">
 	<div class="indexPageSize">
 		<div class = "header">
 			<h1>Marinotes</h1>
@@ -28,7 +28,7 @@
 					</div>
 					<div class = "dropDown" id="dropDown">
 						{% for class in classes %}
-						<a href="/class/{{class.replace(' ','')}}">{{class}}</a>
+						<a class = "options" href="/class/{{class.replace(' ','')}}">{{class}}</a>
 						{% endfor %}
 						<a id='error_text'>No match found</a>
 					</div>
