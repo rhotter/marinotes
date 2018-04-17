@@ -6,19 +6,26 @@
 .cardPictureImg {
 	width:100%;
 	/*margin: 10px;*/
-	/*border: solid #E2E2E2;
-	border-width: 20px;*/
+	border: solid #E2E2E2;
+	border-width: 1px;
 }
 
 .content {
 	padding: 20px;
 	display: grid;
-	grid-column-gap: 20px;
+	grid-column-gap: 30px;
 	grid-row-gap: 10px;
 	grid-template-columns: 1fr 1fr;
 }
 
 .content_h1 {
-	font-size: 50px;
+	font-size: 35px;
 	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.sub {
+	margin-bottom: 7px;
+	color: #7F7F7F;
+	font-weight: 300;
 }
