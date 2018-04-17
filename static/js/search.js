@@ -47,7 +47,7 @@ function filterFunction() {
 function erase() {
 	//attepmt at fixing the disapearing shit
   var c = window.getComputedStyle(document.getElementById('dropDown')).getPropertyValue('border-top-style');
-
+  selection=0;
 	//used for arrows
 	dropViz = false;
 
