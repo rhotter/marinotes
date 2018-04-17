@@ -4,7 +4,7 @@
 }
 
 .cardPictureImg {
-	width:50%;
+	width:100%;
 	margin: 30px;
 	/*border: solid #E2E2E2;
 	border-width: 20px;*/
@@ -12,7 +12,10 @@
 
 .content {
 	padding: 20px;
-	background-color: black;
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	grid-template-columns: 1fr 1fr;
 }
 
 .content_h1 {
