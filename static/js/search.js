@@ -126,7 +126,7 @@ function getOptions(){
 //this function makes sure that the selection is within the bounds
 function selRange(num){
 	if (num < 0) {num = 0;}
-	if (num > getOptions().length) {num = getOptions().length;}
+	if (num >= getOptions().length) {num = getOptions().length-1;}
 	return num;
 }
 
@@ -138,7 +138,7 @@ function hiSelection(ind){
 		}
 		getOptions()[ind].style.backgroundColor = "#B3B3B3";
 	} else {
-		selection = 0;
+		//selection = 0;
 	}
 }
 
