@@ -1,4 +1,5 @@
 var dropViz = false;
+var selection = 0;
 
 function filterFunction() {
 	// Get rid of share button
@@ -37,7 +38,10 @@ function filterFunction() {
 	}
 	else {
 		document.getElementById("error_text").style.display = "none";
+		//hightlight the first element
+		hiSelection(selection);
 	}
+
 }
 
 function erase() {
@@ -69,6 +73,10 @@ function erase() {
 			// Put back text field round bottom border
 			document.getElementById("myInput").style.borderBottomRightRadius = "8px";
 			document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
+
+			//reset hiSelection
+			seletion = 0;
+
   }
 }
 
@@ -77,7 +85,9 @@ function enterFunction(event){
 	if (dropViz){
 		if (event.keyCode == 13 || event.which == 13){
 			//the enter key was pressed
-			console.log("enter");
+			if (getOptions().length != 0) {
+				location.href = getOptions()[selection].href;
+			}
 		}
 	}
 }
@@ -86,15 +96,19 @@ function arrowFunction(event){
 	if (dropViz){
 		if (event.keyCode == 40){
 			//the down key was pressed
-			var classList = getOptions();
-			classList[0].style.color = "red";
+			selection++;
+			selection = selRange(selection);
+			hiSelection(selection);
 		}
 		if (event.keyCode == 38){
 			//the up key was pressed
-			console.log("up");
+			selection--;
+			selection = selRange(selection);
+			hiSelection(selection);
 		}
 	}
 }
+
 
 
 function getOptions(){
@@ -107,3 +121,44 @@ function getOptions(){
 	}
 	return clList;
 }
+
+function selRange(num){
+	if (num < 0) {num = 0;}
+	if (num > getOptions().length) {num = getOptions().length;}
+	return num;
+}
+
+function hiSelection(ind){
+	if (selection < getOptions().length){
+		for (var i = 0; i < getOptions().length; i++) {
+			getOptions()[i].style.backgroundColor = "white";
+		}
+		getOptions()[ind].style.backgroundColor = "#B3B3B3";
+	} else {
+		selection = 0;
+	}
+}
+
+
+function hi(ele){
+	selection = getOptions().indexOf(ele);
+	for (var i = 0; i < getOptions().length; i++) {
+		getOptions()[i].style.backgroundColor = "white";
+	}
+	ele.style.backgroundColor = "#B3B3B3";
+}
+
+/*
+function scrolSel(dirct){
+
+}
+
+
+function lo(){
+	selection = 0;
+	var stf = document.getElementsByClassName("options")
+	for (var i = 0; i < stf.length; i++) {
+		stf.style.backgroundColor = "white";
+	}
+}
+*/

@@ -79,7 +79,7 @@ h1 {
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.045);
     z-index: 1; /* High order of priority for overlap */
 	margin: 0 auto;
-	max-height: 300px; /* max size of dropdown */
+	max-height: 250px; /* max size of dropdown */
 	overflow-y: auto;
 	text-align: left;
 }

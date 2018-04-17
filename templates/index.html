@@ -28,7 +28,7 @@
 					</div>
 					<div class = "dropDown" id="dropDown">
 						{% for class in classes %}
-						<a class = "options" href="/class/{{class.replace(' ','')}}">{{class}}</a>
+						<a class = "options" onmouseover="hi(this)" href="/class/{{class.replace(' ','')}}">{{class}}</a>
 						{% endfor %}
 						<a id='error_text'>No match found</a>
 					</div>
