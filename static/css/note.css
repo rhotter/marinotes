@@ -11,21 +11,57 @@
 }
 
 .content {
-	padding: 20px;
+	padding: 30px;
 	display: grid;
 	grid-column-gap: 30px;
-	grid-row-gap: 10px;
-	grid-template-columns: 1fr 1fr;
+	grid-row-gap: 30px;
+	grid-template-columns: 1.5fr 2fr;
 }
 
 .content_h1 {
 	font-size: 35px;
 	font-weight: 600;
-	margin-bottom: 10px;
 }
 
 .sub {
-	margin-bottom: 7px;
+	margin-bottom: 12px;
 	color: #7F7F7F;
 	font-weight: 300;
+	font-size: 16px;
+}
+
+.line {
+	height: 0.5px;
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #CDD0D0;
+}
+
+.downloads_title {
+	margin-top: 50px;
+	margin-bottom: 12px;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.downloads_container {
+	padding: 10px;
+	background-color: #CDD0D0
+}
+
+.downloads_container:hover {
+	cursor: pointer;
+}
+
+.downloads {
+	width: 100%;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.icon {
+	color: black;
+	margin-right: 6px;
+	font-size: 14px;
 }
