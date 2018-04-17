@@ -6,14 +6,17 @@ app = Flask(__name__)
 # classes = ['Calculus I', 'Calculus II', 'Calculus III', 'Linear Algebra', 'Mechanics', 'English']
 
 def getClasses():
-	file = open("static/csv/classes.csv",'r') # Class CSV is classes.csv
+	file = open("static/csv/classes.csv",'r', encoding='utf-8-sig') # Class CSV is classes.csv
 	reader = csv.reader(file)			
 	# CSV with rows as [teacher, author, upload date]
 	classes=[]
 	for row in reader:
 		classes.append(row[0])
 	file.close()
-	return classes[1:]
+
+	classes=sorted(classes[1:])
+
+	return classes
 
 @app.route("/")
 def index():
@@ -41,3 +44,7 @@ def course(course):
 @app.route("/share")
 def share():
 	return render_template("share.html")
+
+@app.route("/example")
+def example():
+	return render_template("note.html", course='Calculus')

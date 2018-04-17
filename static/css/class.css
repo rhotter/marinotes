@@ -1,11 +1,11 @@
 /* Link to go back home */
 
-a:link {
+.header_h1:link {
 	text-decoration: none;
 	color: black;
 }
 
-a:visited {
+.header_h1:visited {
 	color:black;
 }
 

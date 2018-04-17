@@ -32,6 +32,15 @@ h1 {
 	padding-left: 20px;
 }
 
+.header_h1:link {
+	text-decoration: none;
+	color: black;
+}
+
+.header_h1:visited {
+	color:black;
+}
+
 /* Info */
 .info {
 	padding-top: 40px;
