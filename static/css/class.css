@@ -1,14 +1,5 @@
 /* Link to go back home */
 
-.header_h1:link {
-	text-decoration: none;
-	color: black;
-}
-
-.header_h1:visited {
-	color:black;
-}
-
 .subTitle {
 	font-weight: 100;
 	cursor: default;
