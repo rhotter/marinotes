@@ -5,7 +5,7 @@
 
 .cardPictureImg {
 	width:100%;
-	margin: 30px;
+	/*margin: 10px;*/
 	/*border: solid #E2E2E2;
 	border-width: 20px;*/
 }
@@ -13,7 +13,7 @@
 .content {
 	padding: 20px;
 	display: grid;
-	grid-column-gap: 10px;
+	grid-column-gap: 20px;
 	grid-row-gap: 10px;
 	grid-template-columns: 1fr 1fr;
 }
