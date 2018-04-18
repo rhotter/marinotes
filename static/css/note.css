@@ -15,7 +15,7 @@
 	display: grid;
 	grid-column-gap: 30px;
 	grid-row-gap: 30px;
-	grid-template-columns: 1.5fr 2fr;
+	grid-template-columns: 2fr 1.5fr;
 }
 
 .content_h1 {
@@ -47,7 +47,8 @@
 
 .downloads_container {
 	padding: 10px;
-	background-color: #CDD0D0
+	background-color: #CDD0D0;
+	margin-bottom: 10px;
 }
 
 .downloads_container:hover {
