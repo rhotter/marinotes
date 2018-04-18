@@ -21,7 +21,7 @@ function filterFunction() {
 	var div = document.getElementById("searchDiv");
 	var a = document.getElementsByTagName("a"); // Upper case list
 	var match = false;
-	for(var i=0; i < a.length-1; i++) { /* remove last a (error).... i also added a thing to hide some things as my mom said */
+	for(var i=1; i < a.length-1; i++) { /* remove last a (error).... i also added a thing to hide some things as my mom said */
 		if (a[i].innerHTML.toUpperCase().indexOf(text) == 0 || a[i].innerHTML.toUpperCase().indexOf(" "+text) > -1) {
 			// Show it
 			a[i].style.display = "block";
@@ -38,16 +38,20 @@ function filterFunction() {
 	}
 	else {
 		document.getElementById("error_text").style.display = "none";
-		//hightlight the first element
-		hiSelection(selection);
 	}
+
+	if (selection >= getOptions().length) {
+		selection = 0;
+	}
+
+	hiSelection(selection);
 
 }
 
 function erase() {
 	//attepmt at fixing the disapearing shit
   var c = window.getComputedStyle(document.getElementById('dropDown')).getPropertyValue('border-top-style');
-  selection=0;
+  selection = 0;
 	//used for arrows
 	dropViz = false;
 
@@ -75,7 +79,7 @@ function erase() {
 			document.getElementById("myInput").style.borderBottomLeftRadius = "8px";
 
 			//reset hiSelection
-			seletion = 0;
+			selection = 0;
 
   }
 }
@@ -99,12 +103,14 @@ function arrowFunction(event){
 			selection++;
 			selection = selRange(selection);
 			hiSelection(selection);
+			viewCenter();
 		}
 		if (event.keyCode == 38){
 			//the up key was pressed
 			selection--;
 			selection = selRange(selection);
 			hiSelection(selection);
+			viewCenter();
 		}
 	}
 }
@@ -138,6 +144,7 @@ function hiSelection(ind){
 		}
 		getOptions()[ind].style.backgroundColor = "#B3B3B3";
 	} else {
+		//do nothing
 		//selection = 0;
 	}
 }
@@ -156,18 +163,35 @@ function hi(ele){
 function eraseText(){
 	document.getElementById("myInput").value = "";
 }
-//some garbage that is yet to start working
-/*
-function scrolSel(dirct){
 
-}
+function viewCenter(){
+	var padDrop = 20;
+	var scrollPos = document.getElementById("dropDown").scrollTop;
+	var element = document.getElementById('dropDown'),
+    	style = window.getComputedStyle(element),
+    	dropSize = parseInt(style.getPropertyValue('max-height'));
+	var element = document.getElementsByClassName('options')[0],
+    	style = window.getComputedStyle(element),
+			hegt = parseInt(style.getPropertyValue('height')),
+			padd = parseInt(style.getPropertyValue('padding')),
+    	classElSize = hegt + (2*padd);
 
+	var newScroll = 0;
 
-function lo(){
-	selection = 0;
-	var stf = document.getElementsByClassName("options")
-	for (var i = 0; i < stf.length; i++) {
-		stf.style.backgroundColor = "white";
+	var elePos = selection*classElSize;
+
+	console.log(scrollPos + dropSize);
+	console.log(elePos);
+
+	if (scrollPos > elePos){
+		newScroll = classElSize*(-1);
+		console.log("trger1");
 	}
+	if ((elePos + classElSize) > (scrollPos + dropSize)){
+		newScroll = classElSize;
+		console.log("trger2");
+	}
+
+	document.getElementById("dropDown").scrollTop = scrollPos + newScroll;
+
 }
-*/

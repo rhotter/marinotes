@@ -102,11 +102,11 @@ h1 {
     background-color: white;
 		border-top-style: none;
 }
-
+/*
 .dropDown a:hover {
 	background-color: #B3B3B3;
 }
-
+*/
 .dropDown:hover{
 		border-top-style: hidden; /*using this for some chekky fix raffis fuck up */
 }
