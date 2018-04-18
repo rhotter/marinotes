@@ -55,7 +55,7 @@ h2 {
 	grid-column-gap: 10px;
 	grid-row-gap: 10px;
 
-	height: 100%;
+	height: auto;
 	max-width: 100%;
 	position: relative;
 
@@ -135,4 +135,10 @@ h2 {
 	font-weight: 300;
 	color: #666666;
 	font-size: 16px;
+}
+
+.classPageSize {
+	min-height: 100%;
+	height: auto;
+	position: relative;
 }
