@@ -15,7 +15,7 @@
 	display: grid;
 	grid-column-gap: 30px;
 	grid-row-gap: 30px;
-	grid-template-columns: 2fr 1.5fr;
+	grid-template-columns: 1.5fr 2fr;
 }
 
 .content_h1 {

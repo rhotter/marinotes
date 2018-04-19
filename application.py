@@ -18,13 +18,28 @@ def getClasses():
 
 	return classes
 
+def getInfo(course):
+	course = course.replace(' ','')
+	file = open("static/csv/%s.csv" % course,'r', encoding='utf-8-sig')
+	reader = csv.reader(file)			
+	
+	teachers=[]
+	students=[]
+
+	for row in reader:
+		teachers.append(row[0])
+		students.append(row[1])
+	file.close()
+
+	return teachers,students
+
 @app.route("/")
 def index():
 	classes = getClasses()
 	return render_template("index.html", classes=classes)
 
 @app.route("/class/<course>")
-def course(course):
+def note(course):
 	classes = getClasses()
 	for c_spaces in classes:
 		c=c_spaces.replace(' ','')
@@ -41,10 +56,23 @@ def course(course):
 			return render_template("class.html", course=c_spaces, cards=cards)
 	abort(404)
 
-@app.route("/share")
-def share():
-	return render_template("share.html")
+@app.route("/note/<string>")
+def teach(string):
+	s = string.split('+')
+	# check if input is good
+	if len(s) != 3:
+		abort(404)
+	classes = getClasses()
 
-@app.route("/example")
-def example():
-	return render_template("note.html", course='Calculus')
+	teachers,students = getInfo(s[0])
+
+	for c in classes:
+		if c.replace(' ','')==s[0]:
+			for t in teachers:
+				if t.replace(' ','')==s[1]:
+					for st in students:
+						if st.replace(' ','')==s[2]:
+							 	return render_template("note.html", course=c,teacher=t,student=st)
+	abort(404)
+
+	# http://127.0.0.1:5000/note/English+McCambridge+QinyuCiu

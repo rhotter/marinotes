@@ -14,23 +14,27 @@
 	<div class="indexPageSize">
 		<div class="header_container">
 			<div class = "header_class header">
-				<h1><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> | {{course}}</span></h1>
+				<h1><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> | <a class="header_h1" href="{{ '/class/' + course.replace(' ','')}}">{{ course }}</span></h1>
 			</div>
 		</div>
 
 		<div class="content">
 			<div>
+				<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+			</div>
+
+			<div>
 				<div class="content_h1">
-					Calculus I
+					{{ course }}
 				</div>
 
 				<div class="line"></div>
 
 				<div class="sub">
-					Teacher name
+					{{ teacher }}
 				</div>
 				<div class="sub">
-					Student name
+					{{ student }}
 				</div>
 
 				<div class="downloads_title">
@@ -55,9 +59,6 @@
 					</div>
 				</div>
 
-			</div>
-			<div>
-				<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
 			</div>
 		</div>
 	</div>
