@@ -75,4 +75,8 @@ def teach(string):
 							 	return render_template("note.html", course=c,teacher=t,student=st)
 	abort(404)
 
+
+@app.route("/share")
+def share():
+	return render_template("share.html")
 	# http://127.0.0.1:5000/note/English+McCambridge+QinyuCiu
