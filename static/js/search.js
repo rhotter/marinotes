@@ -42,6 +42,7 @@ function filterFunction() {
 
 	if (selection >= getOptions().length) {
 		selection = 0;
+		//console.log("a");
 	}
 
 	hiSelection(selection);
@@ -51,8 +52,7 @@ function filterFunction() {
 function erase() {
 	//attepmt at fixing the disapearing shit
   var c = window.getComputedStyle(document.getElementById('dropDown')).getPropertyValue('border-top-style');
-  selection = 0;
-	//used for arrows
+
 	dropViz = false;
 
   if (c === 'hidden') {
@@ -80,6 +80,7 @@ function erase() {
 
 			//reset hiSelection
 			selection = 0;
+			//console.log("c");
 
   }
 }
@@ -180,16 +181,16 @@ function viewCenter(){
 
 	var elePos = selection*classElSize;
 
-	console.log(scrollPos + dropSize);
-	console.log(elePos);
+	//console.log(scrollPos + dropSize);
+	//console.log(elePos);
 
 	if (scrollPos > elePos){
 		newScroll = classElSize*(-1);
-		console.log("trger1");
+		//console.log("trger1");
 	}
 	if ((elePos + classElSize) > (scrollPos + dropSize)){
 		newScroll = classElSize;
-		console.log("trger2");
+		//console.log("trger2");
 	}
 
 	document.getElementById("dropDown").scrollTop = scrollPos + newScroll;
