@@ -41,3 +41,14 @@ h3 {
 	margin-left: 20px;
 	margin-right: 20px;
 }
+
+#nameInput{
+	text-align: center;
+	align-items: center;
+	margin: auto;
+	width: auto;
+}
+
+.inputText{
+	text-align: center;
+}
