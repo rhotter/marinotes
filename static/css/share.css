@@ -42,6 +42,7 @@ h3 {
 }
 
 .inputDiv{
+	position: relative;
 	width: inherit;
 	height: 40px;
 }
@@ -68,4 +69,11 @@ h3 {
 
 .shareDrop p:hover{
 	background-color: red;
+}
+
+.xBut{
+	display: none;
+	position:absolute;
+	right: 10px;
+	z-index: 1;
 }

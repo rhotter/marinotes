@@ -31,7 +31,8 @@
 					what is your classes
 				</div>
 				<div class="inputDiv">
-					<input type="text" onfocus="cShow()" class="shareInput" id="cInput" placeholder="Enter and select a class">
+					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
+					<input type="text" onfocus="cShow()" oninput="cFilter()" class="shareInput" id="cInput" placeholder="Enter and select a class">
 				</div>
 				<div class="shareDrop" id="cDrop">
 					<p onclick="cClick(this)">English</p>
@@ -39,6 +40,7 @@
 					<p onclick="cClick(this)">Spanish</p>
 					<p onclick="cClick(this)">Russian</p>
 					<p onclick="cClick(this)">donky</p>
+					<p onclick="cClickNew(this)" id="cNew"></p>
 				</div>
 			</div>
 			<div class="inputHolder">
@@ -46,6 +48,7 @@
 					what is your teacher name
 				</div>
 				<div class="inputDiv">
+					<div class="xBut" id="tEx">&#10006;</div>
 					<input type="text" class="shareInput" id="tInput" placeholder="Enter and select a teacher">
 				</div>
 			</div>
