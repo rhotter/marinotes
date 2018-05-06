@@ -4,6 +4,7 @@
 	<title>Share</title>
 	<link rel = "stylesheet" type = "text/css" href = "../static/css/share.css">
 	<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css">
+	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -15,20 +16,39 @@
 		<div class = "head2">
 			<h2>Share your notes</h2>
 		</div>
-		<div class="main">
+		<div class="shareBody">
 			<h3>Rules</h3>
-			Hello
-		</div>
-		<div>
-			<div id="nameInput">
-				<div class = "inputText">
-					What is your name?
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your name
 				</div>
-				<input type = "text" placeholder="Example: Bob Doe" class = "searchField">
-
+				<div class="inputDiv">
+					<input type="text" class="shareInput" id="nInput" placeholder="Example: Bob Doe">
+				</div>
 			</div>
-
-			<br> put the main stuffs there
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your classes
+				</div>
+				<div class="inputDiv">
+					<input type="text" onfocus="cShow()" class="shareInput" id="cInput" placeholder="Enter and select a class">
+				</div>
+				<div class="shareDrop" id="cDrop">
+					<p onclick="cClick(this)">English</p>
+					<p onclick="cClick(this)">French</p>
+					<p onclick="cClick(this)">Spanish</p>
+					<p onclick="cClick(this)">Russian</p>
+					<p onclick="cClick(this)">donky</p>
+				</div>
+			</div>
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your teacher name
+				</div>
+				<div class="inputDiv">
+					<input type="text" class="shareInput" id="tInput" placeholder="Enter and select a teacher">
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

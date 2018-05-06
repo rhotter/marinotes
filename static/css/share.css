@@ -37,18 +37,35 @@ h3 {
 
 }
 
-.main {
-	margin-left: 20px;
-	margin-right: 20px;
+.shareBody {
+	margin: 20px;
 }
 
-#nameInput{
-	text-align: center;
-	align-items: center;
-	margin: auto;
-	width: auto;
+.inputDiv{
+	width: inherit;
+	height: 40px;
 }
 
-.inputText{
-	text-align: center;
+.inputHolder{
+	width: 200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+.shareInput{
+	width: inherit;
+	height: inherit;
+	/* add border styles and such*/
+}
+
+.shareDrop{
+	display: none;
+}
+
+.shareDrop p{
+	display: block;
+}
+
+.shareDrop p:hover{
+	background-color: red;
 }
