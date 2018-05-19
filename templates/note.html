@@ -42,7 +42,7 @@
 				</div>
 
 				{% for note in notes %}
-					<div onclick="window.location.href='../static/pdf/7%20-%20Series%20and%20Convergence.pdf'" class="downloads_container">
+					<div onclick="window.location.href='../static/pdf/{{note.replace(' ','%20')}}.pdf'" class="downloads_container">
 						<div class="downloads">
 							<i class="fas fa-arrow-circle-down icon"></i> {{note}}
 						</div>
