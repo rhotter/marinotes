@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 def getClasses():
 	file = open("static/csv/classes.csv",'r', encoding='utf-8-sig') # Class CSV is classes.csv
-	reader = csv.reader(file)			
+	reader = csv.reader(file)
 	# CSV with rows as [teacher, author, upload date]
 	classes=[]
 	for row in reader:
@@ -21,8 +21,8 @@ def getClasses():
 def getInfo(course):
 	course = course.replace(' ','')
 	file = open("static/csv/%s.csv" % course,'r', encoding='utf-8-sig')
-	reader = csv.reader(file)			
-	
+	reader = csv.reader(file)
+
 	teachers=[]
 	students=[]
 
@@ -32,6 +32,16 @@ def getInfo(course):
 	file.close()
 
 	return teachers,students
+
+def getNotes(string):
+	file = open("static/csv/%s.csv" % string,'r', encoding='utf-8-sig')
+	reader = csv.reader(file)
+
+	notes = []
+
+	for row in reader:
+		notes.append(row[0])
+	return notes
 
 @app.route("/")
 def index():
@@ -57,6 +67,7 @@ def note(course):
 	abort(404)
 
 @app.route("/note/<string>")
+
 def teach(string):
 	s = string.split('+')
 	# check if input is good
@@ -72,11 +83,12 @@ def teach(string):
 				if t.replace(' ','')==s[1]:
 					for st in students:
 						if st.replace(' ','')==s[2]:
-							 	return render_template("note.html", course=c,teacher=t,student=st)
+								notes = getNotes(string) # downloadable notes
+								return render_template("note.html", course=c,teacher=t,student=st,notes=notes)
 	abort(404)
 
 
 @app.route("/share")
 def share():
 	return render_template("share.html")
-	# http://127.0.0.1:5000/note/English+McCambridge+QinyuCiu
+	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu

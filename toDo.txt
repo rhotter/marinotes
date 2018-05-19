@@ -5,6 +5,16 @@ note that bugs can be noted down here
 - add cancel icon to search bar, and have search bar reset when page is reloaded
 - page for notes
 - set up upload of documents part
+
+
+Btw:
+To find a particular note, use this format:
+IntrotoCollegeEnglish+AndrewMcCambridge+QinyuCiu
+
+= Intro to College English, Andrew McCambridge, Qinyu Ciu
+
+
+
 @app.route("/class/<path:path>/") # course/teacher/student
 def course(path):
     split_path = path.split('/')
@@ -41,7 +51,7 @@ def course(path):
 # def course(path):
 #   split_path = path.split('/')
 #   length = len(split_path)
-#   if split_path[-1] == 
+#   if split_path[-1] ==
 
 #   return str(length)
 #   if length != 1 and length != 3:
