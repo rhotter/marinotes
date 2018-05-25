@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, abort
 import csv
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # classes = ['Calculus I', 'Calculus II', 'Calculus III', 'Linear Algebra', 'Mechanics', 'English']
 
@@ -43,12 +43,12 @@ def getNotes(string):
 		notes.append(row[0])
 	return notes
 
-@app.route("/")
+@application.route("/")
 def index():
 	classes = getClasses()
 	return render_template("index.html", classes=classes)
 
-@app.route("/class/<course>")
+@application.route("/class/<course>")
 def note(course):
 	classes = getClasses()
 	for c_spaces in classes:
@@ -66,7 +66,7 @@ def note(course):
 			return render_template("class.html", course=c_spaces, cards=cards)
 	abort(404)
 
-@app.route("/note/<string>")
+@application.route("/note/<string>")
 
 def teach(string):
 	s = string.split('+')
@@ -87,8 +87,8 @@ def teach(string):
 								return render_template("note.html", course=c,teacher=t,student=st,notes=notes)
 	abort(404)
 
-
-@app.route("/share")
-def share():
-	return render_template("share.html")
-	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu
+#
+# @application.route("/share")
+# def share():
+# 	return render_template("share.html")
+# 	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu
