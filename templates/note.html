@@ -7,6 +7,8 @@
 
 	<!-- Font awesome for icon -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+	<!-- Google icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -20,21 +22,27 @@
 
 		<div class="content">
 			<div>
-				<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
-			</div>
-
-			<div>
 				<div class="content_h1">
 					{{ course }}
 				</div>
 
 				<div class="line"></div>
 
-				<div class="sub">
-					{{ teacher }}
+				<div style="margin-top: 20px;">
+
+					<div class="sub">
+						<i class="material-icons" style="padding-right: 10px; vertical-align: text-bottom; font-size: 20px;">create</i>{{ teacher }}
+					</div>
+					<div class="sub">
+						<i class="material-icons" style="padding-right: 10px; vertical-align: text-bottom; font-size: 20px;">person</i>{{ student }}
+					</div>
 				</div>
-				<div class="sub">
-					{{ student }}
+
+				<div class="smallImage">
+					<div class="downloads_title">
+						Preview
+					</div>
+					<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
 				</div>
 
 				<div class="downloads_title">
@@ -42,13 +50,16 @@
 				</div>
 
 				{% for note in notes %}
-					<div onclick="window.location.href='../static/pdf/{{note.replace(' ','%20')}}.pdf'" class="downloads_container">
+					<div onclick="window.open('../static/pdf/{{note.replace(' ','%20')}}.pdf')" class="downloads_container">
 						<div class="downloads">
 							<i class="fas fa-arrow-circle-down icon"></i> {{note}}
 						</div>
 					</div>
 				{% endfor %}
 
+			</div>
+			<div class="cardImage">
+				<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
 			</div>
 		</div>
 	</div>

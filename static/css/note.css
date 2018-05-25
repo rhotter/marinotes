@@ -15,7 +15,30 @@
 	display: grid;
 	grid-column-gap: 30px;
 	grid-row-gap: 30px;
-	grid-template-columns: 1.5fr 2fr;
+}
+
+@media (min-width: 601px) {
+	.content {
+		grid-template-columns: 2fr 1.5fr;
+	}
+	.cardImage {
+		display: block;
+	}
+	.smallImage {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.content {
+		grid-template-columns: 1fr;
+	}
+	.cardImage {
+		display: none;
+	}
+	.smallImage {
+		display: block;
+	}
 }
 
 .content_h1 {
@@ -24,8 +47,8 @@
 }
 
 .sub {
-	margin-bottom: 12px;
-	color: #7F7F7F;
+	margin-bottom: 20px;
+	/* color: #7F7F7F; */
 	font-weight: 300;
 	font-size: 16px;
 }
@@ -39,7 +62,7 @@
 }
 
 .downloads_title {
-	margin-top: 50px;
+	margin-top: 40px;
 	margin-bottom: 12px;
 	font-weight: 700;
 	font-size: 16px;
