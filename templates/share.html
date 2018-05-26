@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Share</title>
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/share.css?version=13">
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css?version=13">
+	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}?version=13"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="indexPageSize">
+		<div class = "header_class">
+			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | Share</span></h1>
+		</div>
+
+		<div class = "head2">
+			<h2>Share your notes</h2>
+		</div>
+		<div class="shareBody">
+			<h3>Rules</h3>
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your name
+				</div>
+				<div class="inputDiv">
+					<input type="text" class="shareInput" id="nInput" placeholder="Example: Bob Doe">
+				</div>
+			</div>
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your classes
+				</div>
+				<div class="inputDiv">
+					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
+					<input type="text" onfocus="cShow()" oninput="cFilter()" class="shareInput" id="cInput" placeholder="Enter and select a class">
+				</div>
+				<div class="shareDrop" id="cDrop">
+					<p onclick="cClick(this)">English</p>
+					<p onclick="cClick(this)">French</p>
+					<p onclick="cClick(this)">Spanish</p>
+					<p onclick="cClick(this)">Russian</p>
+					<p onclick="cClick(this)">donky</p>
+					<p onclick="cClickNew(this)" id="cNew"></p>
+				</div>
+			</div>
+			<div class="inputHolder">
+				<div class="questionStyle">
+					what is your teacher name
+				</div>
+				<div class="inputDiv">
+					<div class="xBut" id="tEx">&#10006;</div>
+					<input type="text" class="shareInput" id="tInput" placeholder="Enter and select a teacher">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

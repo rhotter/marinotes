@@ -1,0 +1,92 @@
+.subTitle {
+	font-weight: 100;
+	cursor: default;
+}
+
+.cardPictureImg {
+	width:100%;
+	/*margin: 10px;*/
+	border: solid #E2E2E2;
+	border-width: 1px;
+}
+
+.content {
+	padding: 30px;
+	display: grid;
+	grid-column-gap: 30px;
+	grid-row-gap: 30px;
+}
+
+.over {
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+	width: calc(100% - 20px);
+}
+
+@media (min-width: 601px) {
+	.content {
+		grid-template-columns: 2fr 1.5fr;
+	}
+	.cardImage {
+		display: block;
+	}
+}
+
+@media (max-width: 600px) {
+	.content {
+		grid-template-columns: 1fr;
+	}
+	.cardImage {
+		display: none;
+	}
+}
+
+.content_h1 {
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.sub {
+	margin-bottom: 20px;
+	/* color: #7F7F7F; */
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.line {
+	height: 0.5px;
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #CDD0D0;
+}
+
+.downloads_title {
+	margin-top: 40px;
+	margin-bottom: 12px;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.downloads_container {
+	padding: 10px;
+	background-color: #CDD0D0;
+	margin-bottom: 10px;
+}
+
+.downloads_container:hover {
+	cursor: pointer;
+}
+
+.downloads {
+	width: 100%;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.icon {
+	color: black;
+	margin-right: 6px;
+	font-size: 14px;
+}

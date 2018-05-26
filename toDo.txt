@@ -1,0 +1,134 @@
+werid
+
+List of things left to do or implement
+actually use this please
+note that bugs can be noted down here
+
+- add cancel icon to search bar, and have search bar reset when page is reloaded
+- page for notes
+- set up upload of documents part
+
+
+Btw:
+To find a particular note, use this format:
+IntrotoCollegeEnglish+AndrewMcCambridge+QinyuCiu
+
+= Intro to College English, Andrew McCambridge, Qinyu Ciu
+
+
+
+@app.route("/class/<path:path>/") # course/teacher/student
+def course(path):
+    split_path = path.split('/')
+    length = len(split_path)-1
+
+    if length==0 or length>3 or length==2:
+        abort(404)
+    else:
+        course = split_path[0]
+        if length > 1:
+            teacher = split_path[1]
+            student = split_path[2]
+    classes = getClasses()
+    for c_spaces in classes:
+        c=c_spaces.replace(' ','')
+        if c == course:
+            # CSV stuff. Will need CSV files for each course
+            file = open("static/csv/{}.csv".format(c),'r', encoding='utf-8-sig')
+            reader = csv.reader(file)
+
+            # CSV with rows as [teacher, author, upload date]
+            cards=[]
+            for row in reader:
+                cards.append(row)
+            file.close()
+            return render_template("class.html", course=c_spaces, cards=cards)
+    abort(404)
+
+
+--
+
+
+# @app.route("/class/<path:path>") # course/teacher/student
+# def course(path):
+#   split_path = path.split('/')
+#   length = len(split_path)
+#   if split_path[-1] ==
+
+#   return str(length)
+#   if length != 1 and length != 3:
+#       abort(404)
+#   course = split_path[0]
+#   return '3'
+#   if length == 3:
+#       teacher = split_path[1]
+#       student = split_path[2]
+
+#   return 'hello'
+
+#   return render_template("note.html")
+
+
+--
+
+split_path = path.split('/')
+    length = len(split_path)
+    if length != 0: # remove backslash from length
+        if split_path[-1] == '/':
+            length -= 1
+    if length != 1 and length != 3:
+        abort(404)
+    course = split_path[0]
+    if length == 1:
+        classes = getClasses()
+        for c_spaces in classes:
+            c=c_spaces.replace(' ','')
+            if c == course:
+                # CSV stuff. Will need CSV files for each course
+                file = open("static/csv/{}.csv".format(c),'r', encoding='utf-8-sig')
+                reader = csv.reader(file)
+
+                # CSV with rows as [teacher, author, upload date]
+                cards=[]
+                for row in reader:
+                    cards.append(row)
+                file.close()
+                return render_template("class.html", course=c_spaces, cards=cards)
+        abort(404)
+    return render_template("share.html")
+
+    if length == 3:
+        return render_template("class.html")
+        teacher = split_path[1]
+        student = split_path[2]
+        classes = getClasses()
+        for c in classes:
+            return render_template("share.html")
+
+
+
+---
+
+{% for i in range(0, students|length) %}
+
+<!-- Individual cards -->
+<div onclick="location.href='{{ '/note/' + course.replace(' ','%20') + '+' + cards[i][0].replace(' ','%20') + '+' + cards[i][1].replace(' ','%20') }}'"class="cardFull">
+  <div class="cardTable">
+    <div class="cardPicture">
+      <div class="subCardPicture">
+        <img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+      </div>
+    </div>
+    <div class="cardInfo">
+      <div class="subCardInfo">
+        <div class="teacherName">
+          {{ teachers[i] }}
+        </div>
+        <div class="studentName">
+          {{ students[i] }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div></a>
+{% endfor %}

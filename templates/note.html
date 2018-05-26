@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{course}}</title>
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/note.css?version=12">
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css?version=12">
+
+	<!-- Font awesome for icon -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+	<!-- Google icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="indexPageSize">
+		<div class="header_container">
+			<div class = "header_class header">
+				<h1 class="over"><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> | <a class="header_h1" href="{{ '/class/' + course.replace(' ','')}}">	{{ course }}</a></span></h1>
+			</div>
+		</div>
+
+		<div class="content">
+			<div>
+				<div class="content_h1">
+					{{ course }}
+				</div>
+
+				<div class="line"></div>
+
+				<div style="margin-top: 20px;">
+
+					<div class="sub">
+						<i class="material-icons" style="padding-right: 6px; vertical-align: text-bottom; font-size: 20px;">person</i>
+						<span style="font-weight: 700">Teacher: &nbsp; </span>{{ teacher }}
+					</div>
+					<div class="sub">
+						<i class="material-icons" style="padding-right: 6px; vertical-align: text-bottom; font-size: 20px;">create</i>
+						<span style="font-weight: 700">Student: &nbsp; </span>{{ student }}
+					</div>
+				</div>
+
+				<!-- <div class="smallImage">
+					<div class="downloads_title">
+						Preview
+					</div>
+					<img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+				</div> -->
+
+				<div class="downloads_title">
+					Downloads
+				</div>
+
+				{% for note in notes %}
+					<div onclick="window.open('../static/pdf/Notes/{{ course.replace(' ','%20') }}/{{ teacher.replace(' ','%20') }}/{{ student.replace(' ','%20') }}/{{ note.replace(' ','%20') }}.pdf')" class="downloads_container">
+						<div class="downloads">
+							<i class="fas fa-arrow-circle-down icon"></i> {{ note }}
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+			<div class="cardImage">
+				<img src="../static/pdf/Notes/{{ course.replace(' ','%20') }}/{{ teacher.replace(' ','%20') }}/{{ student.replace(' ','%20') }}/Image/img.jpg" class="cardPictureImg">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

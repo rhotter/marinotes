@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+	<title>{{course}}</title>
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/class.css?version=12">
+	<link rel = "stylesheet" type = "text/css" href = "../static/css/style.css?version=12">
+	<script type="text/javascript" src="{{url_for('static', filename='js/class.js') }}?version=12"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body onload="teacherLoad();">
+	<div class="classPageSize">
+		<div class = "header_class">
+			<h1 class="over"><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> |
+				<a class="header_h1" href="{{ '/class/' + course.replace(' ','')}}">{{ course }}</a></span></h1>
+		</div>
+
+		<div class = "head2">
+			<h2 class="big">{{ course }}</h2>
+		</div>
+
+		<div class="filterBar">
+			<div class="filtHead">Filter</div>
+			<div id="filtBar">
+
+			</div>
+		</div>
+		<!-- <div class="filterBar">
+			<div class="filtHead">Filter</div>
+			<div id="filtBar">
+			</div>
+		</div> -->
+
+		<!-- Holder for all cards -->
+		<div id="cardHolder">
+			{% for i in range(0, students|length) %}
+
+			<!-- Individual cards -->
+			<div onclick="location.href='{{ '/note/' + course.replace(' ','') + '+' + teachers[i].replace(' ','') + '+' + students[i].replace(' ','') }}'"class="cardFull">
+				<div class="cardTable">
+					<div class="cardPicture">
+						<div class="subCardPicture">
+							<img src="../static/pdf/Notes/{{ course.replace(' ','%20') }}/{{ teachers[i].replace(' ','%20') }}/{{ students[i].replace(' ','%20') }}/Image/img.jpg" class="cardPictureImg">
+						</div>
+					</div>
+					<div class="cardInfo">
+						<div class="subCardInfo">
+							<div class="teacherName">
+								{{ teachers[i] }}
+							</div>
+							<div class="studentName">
+								{{ students[i] }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div></a>
+			{% endfor %}
+		</div>
+		<div class = "flex-footer">
+			<div>
+				&#9400; 2018 Marinotes<br>Made by batman, anonIMOous and a magician.
+			</div>
+		</div>
+	</div>
+</body>
+</html>
