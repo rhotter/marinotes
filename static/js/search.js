@@ -2,8 +2,8 @@ var dropViz = false;
 var selection = 0;
 
 function filterFunction() {
-	// Get rid of share button
-	document.getElementById("shareBut").style.display = "none";
+	// Get rid of share button --> z index takes care of that
+	// document.getElementById("shareBut").style.display = "none";
 
 	//used for the arrows
 	dropViz = true;

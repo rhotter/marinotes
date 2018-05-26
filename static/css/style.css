@@ -77,9 +77,19 @@ h1 {
 	font-family: Lato, sans-serif;
 }
 
+@media (min-width: 533px) {
+	.dropDown {
+		width: 419px;
+	}
+}
+
 @media (max-width: 532px) {
 	.searchField {
 		width: 75%;
+	}
+
+	.dropDown {
+		width: calc(75% + 20px);
 	}
 }
 
@@ -87,7 +97,7 @@ h1 {
 .dropDown {
 	position: relative;
 	display: block;
-	width: 370px;
+	/* width: 419px; */
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	border-top: none;
@@ -126,7 +136,7 @@ h1 {
 	text-align: center;
 	/* padding-top: 100px; */
 	position: absolute;
-	top: 175px; /* defines position of the button */
+	top: 160px; /* defines position of the button */
 	/* z-index: -10;  */
 	width: 100%;
 }
