@@ -2,17 +2,31 @@
 
 .subTitle {
 	font-weight: 100;
+	width: 100px;
 	cursor: default;
+}
+
+.over {
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+	width: calc(100% - 20px);
 }
 
 h2 {
 	margin-top: 0px;
 	margin-bottom: 5px;
-	font-size: 60px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 100;
 	color: white;
 	cursor: default;
+}
+
+.big {
+	text-align: center;
+	font-size: 60px;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 .head2 {
@@ -23,6 +37,15 @@ h2 {
 	align-items: center;
 	flex-wrap: wrap;
 	align-content: space-between;
+}
+
+@media (max-width: 500px) {
+	.big {
+		font-size: 10vw;
+	}
+	.head2 {
+		height: 150px;
+	}
 }
 
 .filtHead {

@@ -143,7 +143,7 @@ function hiSelection(ind){
 		for (var i = 0; i < getOptions().length; i++) {
 			getOptions()[i].style.backgroundColor = "white";
 		}
-		getOptions()[ind].style.backgroundColor = "#B3B3B3";
+		getOptions()[ind].style.backgroundColor = "#d9d9d9";
 	} else {
 		//do nothing
 		//selection = 0;
@@ -156,7 +156,7 @@ function hi(ele){
 	for (var i = 0; i < getOptions().length; i++) {
 		getOptions()[i].style.backgroundColor = "white";
 	}
-	ele.style.backgroundColor = "#B3B3B3";
+	ele.style.backgroundColor = "#d9d9d9";
 }
 
 
