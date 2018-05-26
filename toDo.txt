@@ -104,3 +104,31 @@ split_path = path.split('/')
         classes = getClasses()
         for c in classes:
             return render_template("share.html")
+
+
+
+---
+
+{% for i in range(0, students|length) %}
+
+<!-- Individual cards -->
+<div onclick="location.href='{{ '/note/' + course.replace(' ','%20') + '+' + cards[i][0].replace(' ','%20') + '+' + cards[i][1].replace(' ','%20') }}'"class="cardFull">
+  <div class="cardTable">
+    <div class="cardPicture">
+      <div class="subCardPicture">
+        <img src="../static/photos/note_screenshot.jpg" class="cardPictureImg">
+      </div>
+    </div>
+    <div class="cardInfo">
+      <div class="subCardInfo">
+        <div class="teacherName">
+          {{ teachers[i] }}
+        </div>
+        <div class="studentName">
+          {{ students[i] }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div></a>
+{% endfor %}

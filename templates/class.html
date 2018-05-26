@@ -10,7 +10,7 @@
 <body onload="teacherLoad();">
 	<div class="classPageSize">
 		<div class = "header_class">
-			<h1><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> | <a class="header_h1" href="{{ '/class/' + course.replace(' ','')}}">{{ course }}</a></span></h1>
+			<h1><a href = "/" class="header_h1">Marinotes</a> <span class="subTitle"> | <a class="header_h1" href="{{ '/class/' + course.replace(' ','%20')}}">{{ course }}</a></span></h1>
 		</div>
 
 		<div class = "head2">
@@ -31,10 +31,10 @@
 
 		<!-- Holder for all cards -->
 		<div id="cardHolder">
-			{% for i in range(0, cards|length) %}
+			{% for i in range(0, students|length) %}
 
 			<!-- Individual cards -->
-			<div onclick="location.href='{{ '/note/' + course.replace(' ','') + '+' + cards[i][0].replace(' ','') + '+' + cards[i][1].replace(' ','') }}'"class="cardFull">
+			<div onclick="location.href='{{ '/note/' + course.replace(' ','') + '+' + teachers[i].replace(' ','') + '+' + students[i].replace(' ','') }}'"class="cardFull">
 				<div class="cardTable">
 					<div class="cardPicture">
 						<div class="subCardPicture">
@@ -44,10 +44,10 @@
 					<div class="cardInfo">
 						<div class="subCardInfo">
 							<div class="teacherName">
-								{{ cards[i][0] }}
+								{{ teachers[i] }}
 							</div>
 							<div class="studentName">
-								{{ cards[i][1] }}
+								{{ students[i] }}
 							</div>
 						</div>
 					</div>

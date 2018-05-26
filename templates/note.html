@@ -53,7 +53,7 @@
 				</div>
 
 				{% for note in notes %}
-					<div onclick="window.open('../static/pdf/{{note.replace(' ','%20')}}.pdf')" class="downloads_container">
+					<div onclick="window.open('../static/pdf/Notes/{{ course.replace(' ','%20') }}/{{ teacher.replace(' ','%20') }}/{{ student.replace(' ','%20') }}/{{ note.replace(' ','%20') }}.pdf')" class="downloads_container">
 						<div class="downloads">
 							<i class="fas fa-arrow-circle-down icon"></i> {{note}}
 						</div>
