@@ -69,12 +69,18 @@ h1 {
 	border-bottom-left-radius: 8px;
 	font-size: 16px;
 	padding: 10px;
-	width: 350px;
+	width: 399px;
 	height: 30px;
 	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.045);
 	text-indent: 4px;
 	outline: none;
 	font-family: Lato, sans-serif;
+}
+
+@media (max-width: 532px) {
+	.searchField {
+		width: 75%;
+	}
 }
 
 /* DropDown content */
@@ -118,14 +124,14 @@ h1 {
 
 .shareButtonWrap {
 	text-align: center;
-	padding-top: 100px;
+	/* padding-top: 100px; */
 	position: absolute;
-	top: 50px; /* defines position of the button */
-	z-index: -10;
+	top: 175px; /* defines position of the button */
+	/* z-index: -10;  */
 	width: 100%;
 }
 
-.shareButton {
+/* .shareButton {
 	border: none;
 	background-color: #E6E6E6;
 	width: 150px;
@@ -137,8 +143,16 @@ h1 {
 	z-index: 0;
 	position: relative;
 	margin: 0 auto;
+} */
+
+.shareClick {
+	color: #1155cc;
+	text-decoration: underline;
 }
 
+.shareClick:hover {
+	cursor: pointer;
+}
 
 /* Footer */
 .flex-footer {
