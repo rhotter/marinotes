@@ -87,8 +87,14 @@ def teach(string):
 								return render_template("note.html", course=c,teacher=t,student=st,notes=notes)
 	abort(404)
 
-#
-# @application.route("/share")
-# def share():
-# 	return render_template("share.html")
-# 	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu
+
+@application.route("/share")
+def share():
+	return render_template("share.html")
+	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu
+
+if __name__ == "__main__":
+    # Setting debug to True enables debug output. This line should be
+    # removed before deploying a production app.
+    application.debug = True
+    application.run()
