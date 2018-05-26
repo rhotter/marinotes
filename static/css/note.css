@@ -17,6 +17,13 @@
 	grid-row-gap: 30px;
 }
 
+.over {
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+	width: calc(100% - 20px);
+}
+
 @media (min-width: 601px) {
 	.content {
 		grid-template-columns: 2fr 1.5fr;
