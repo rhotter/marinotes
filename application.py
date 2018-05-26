@@ -20,7 +20,9 @@ application = Flask(__name__)
 # 	return classes
 
 def getClasses():
-	return next(os.walk('static/pdf/Notes'))[1]
+	classes = next(os.walk('static/pdf/Notes'))[1]
+	classes.sort()
+	return classes
 
 def getInfo(course):
 	teachers = []
@@ -35,6 +37,7 @@ def getNotes(course,teacher,student):
 	notes = next(os.walk('static/pdf/Notes/%s/%s/%s/.' % (course,teacher,student)))[2]
 	for i in range(0,len(notes)):
 		notes[i] = notes[i][:-4]
+	notes.sort()
 	return notes
 
 @application.route("/")
@@ -49,16 +52,6 @@ def note(course):
 		c=c_spaces.replace(' ','')
 		if c == course:
 			teachers,students = getInfo(c_spaces)
-
-			# # CSV stuff. Will need CSV files for each course
-			# file = open("static/csv/{}.csv".format(c),'r', encoding='utf-8-sig')
-			# reader = csv.reader(file)
-			#
-			# # CSV with rows as [teacher, author, upload date]
-			# cards=[]
-			# for row in reader:
-			# 	cards.append(row)
-			# file.close()
 			return render_template("class.html", course=c_spaces, teachers=teachers, students=students)
 	abort(404)
 
@@ -79,15 +72,9 @@ def teach(string):
 					for st in students:
 						if st.replace(' ','')==s[2]:
 								notes = getNotes(c,t,st)
-								# notes = getNotes(string) # downloadable notes
 								return render_template("note.html", course=c,teacher=t,student=st,notes=notes)
 	abort(404)
 
-
-# @application.route("/share")
-# def share():
-# 	return render_template("share.html")
-# 	# http://127.0.0.1:5000/note/English+AndrewMcCambridge+QinyuCiu
 
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
