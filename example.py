@@ -1,5 +1,8 @@
 import os
 
-a = next(os.walk('static/pdf/Notes/Calculus III/Egan/Qinyu'))[2]
+course = 'Calculus 1'
+teacher = 'Joseph Rinehart'
+student = 'Raffi Hotter'
 
-print(a[:][:][0])
+notes = next(os.walk('static/pdf/Notes/%s/%s/%s/.' % (course,teacher,student)))[2]
+print(notes)

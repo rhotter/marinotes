@@ -4,21 +4,6 @@ import os
 
 application = Flask(__name__)
 
-# classes = ['Calculus I', 'Calculus II', 'Calculus III', 'Linear Algebra', 'Mechanics', 'English']
-#
-# def getClasses():
-# 	file = open("static/csv/classes.csv",'r', encoding='utf-8-sig') # Class CSV is classes.csv
-# 	reader = csv.reader(file)
-# 	# CSV with rows as [teacher, author, upload date]
-# 	classes=[]
-# 	for row in reader:
-# 		classes.append(row[0])
-# 	file.close()
-#
-# 	classes=sorted(classes[1:])
-#
-# 	return classes
-
 def getClasses():
 	classes = next(os.walk('static/pdf/Notes'))[1]
 	classes.sort()
@@ -34,9 +19,11 @@ def getInfo(course):
 	return teachers,students
 
 def getNotes(course,teacher,student):
-	notes = next(os.walk('static/pdf/Notes/%s/%s/%s/.' % (course,teacher,student)))[2]
-	for i in range(0,len(notes)):
-		notes[i] = notes[i][:-4]
+	n = next(os.walk('static/pdf/Notes/%s/%s/%s/.' % (course,teacher,student)))[2]
+	notes = []
+	for note in n:
+		if note[-4:]==".pdf":
+			notes.append(note[:-4])
 	notes.sort()
 	return notes
 
