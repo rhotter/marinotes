@@ -191,6 +191,6 @@ h1 {
 
 .indexPageSize {
 	height: 100%;
-	min-height: 700px; /* determines the page height and the distance from footer */
+	min-height: 600px; /* determines the page height and the distance from footer */
 	position: relative;
 }

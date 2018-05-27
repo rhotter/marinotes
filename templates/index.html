@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html style = "height: 100%;">
+<html style="height: 100%;">
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119928795-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-119928795-1');
+	</script>
 	<title>Marinotes</title>
 
 	<!-- Some criptic flask shit to import HTML/CSS -->
@@ -9,6 +18,20 @@
 
 	<!-- Works on mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Crappy meta data stuff -->
+	<meta name="description" content="Free Marianopolis note sharing">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<!-- For sharing -->
+	<meta property="og:title" content="Marinotes">
+	<meta property="og:image" content="../static/wallpaper.png">
+	<meta property="og:description" content="Free Marianopolis note sharing">
+	<meta property="og:url" content="http://marinotes.com">
+
+	<!-- Favicon -->
+	<link rel="icon" href="../static/icon-white.png?version=5" type="image/png" sizes="16x16">
+
 </head>
 <body onload="eraseText()" onkeypress="enterFunction(event)" onkeydown="arrowFunction(event)">
 	<div class="indexPageSize">
@@ -17,7 +40,7 @@
 		</div>
 		<div>
 			<div class = "info">
-				Free notes.<br>For everyone.
+				Free Marianopolis notes.<br>For everyone.
 			</div>
 
 			<div class = "wrap">
