@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, abort
-import csv
 import os
 
 application = Flask(__name__)
