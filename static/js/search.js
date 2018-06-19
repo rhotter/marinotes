@@ -7,7 +7,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 
-console.log(isMobile);
+// console.log(isMobile);
 
 function filterFunction() {
 	// Get rid of share button --> z index takes care of that
