@@ -1,12 +1,24 @@
 from flask import Flask, render_template, redirect, abort
 import os
 
+from flask_pymongo import PyMongo
+
 application = Flask(__name__)
 
+with application.app_context():
+    mongo = PyMongo(application)
+    d = mongo.db.classes
+
+# def getClasses():
+# 	classes = next(os.walk('static/pdf/Notes'))[1]
+# 	classes.sort()
+# 	return classes
+
 def getClasses():
-	classes = next(os.walk('static/pdf/Notes'))[1]
-	classes.sort()
-	return classes
+	classes_curs = d.find({},{'name':1,'_id':0}).sort('name',1)
+	classes = []
+	for cl in classes_curs:
+	    classes.append(cl['name'])
 
 def getInfo(course):
 	teachers = []
