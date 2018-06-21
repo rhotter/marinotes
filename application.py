@@ -37,7 +37,19 @@ def getNotes(course,teacher,student):
 	conn.commit()
 	conn.close()
 
-def submitNote(course, teacher, student, date):
+def submitNote(submittedCourse, submittedTeacher, submittedStudent, submittedDate, Files_Paths):
+	# Files_Paths is a list of tuples with file names and paths
+	c.execute("INSERT INTO submittedNotes (submittedCourse,submittedTeacher,submittedStudent,submittedDate) VALUES (?,?,?,?);",(submittedCourse, submittedTeacher, submittedStudent, submittedDate))
+	c.execute("SELECT submittedNoteID from submittedNotes WHERE submittedCourse=? AND submittedTeacher=? AND submittedStudent=? AND submittedDate=?;",(course, teacher, student, date))
+	submittedNoteID = c.fetchone()
+	submittedNoteID = submittedNoteID[0]
+
+	for file_path in Files_Paths:
+		c.execute("INSERT INTO submittedFiles (submittedNoteID, submittedFileName, path) VALUES (?,?);",(submittedNoteID, file_path[0], file_path[1]))
+
+	conn.commit()
+	conn.close()
+
 
 def acceptNote(submittedNoteID):
 	conn = sqlite3.connect('database.db')
