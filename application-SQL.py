@@ -1,42 +1,26 @@
 from flask import Flask, render_template, redirect, abort
-import os
+import os, sqlite3
 
-from flask_pymongo import PyMongo
+conn = sqlite3.connect('database-upd3.db')
+c = conn.cursor()
 
 application = Flask(__name__)
 
-with application.app_context():
-    mongo = PyMongo(application)
-    d = mongo.db.classes
-
-# def getClasses():
-# 	classes = next(os.walk('static/pdf/Notes'))[1]
-# 	classes.sort()
-# 	return classes
-
 def getClasses():
-	classes_curs = d.find({},{'name':1,'_id':0}).sort('name',1)
-	classes = []
-	for cl in classes_curs:
-	    classes.append(cl['name'])
+	c.execute("SELECT courseName FROM courses ORDER BY courseName;")
+	classes = c.fetchall()
+	return [x[0] for x in classes]
 
 def getInfo(course):
-	teachers = []
-	students = []
-	for teacher in next(os.walk('static/pdf/Notes/%s' % course))[1]:
-		for student in next(os.walk('static/pdf/Notes/%s/%s' % (course,teacher)))[1]:
-			teachers.append(teacher)
-			students.append(student)
-	return teachers,students
+	c.execute("SELECT studentName, teacherName from notes JOIN courses ON notes.courseID = courses.courseID JOIN students ON notes.studentID = students.studentID JOIN teachers ON notes.teacherID=teachers.teacherID WHERE courseName=?",(course,))
+	teachstude = c.fetchall()
+	return [x[1] for x in teachstude],[x[0] for x in teachstude] # teachers,students
 
 def getNotes(course,teacher,student):
-	n = next(os.walk('static/pdf/Notes/%s/%s/%s/.' % (course,teacher,student)))[2]
-	notes = []
-	for note in n:
-		if note[-4:]==".pdf":
-			notes.append(note[:-4])
-	notes.sort()
-	return notes
+	c.execute("SELECT fileName from notes JOIN courses ON notes.courseID = courses.courseID JOIN students ON notes.studentID = students.studentID JOIN teachers ON notes.teacherID=teachers.teacherID JOIN files ON notes.noteID=files.noteID WHERE courseName=? AND teacherName=? AND studentName=? ORDER BY fileName",(course,teacher,student,))
+	files = c.fetchall()
+	print(files)
+	return [x[0][:-4] for x in files]
 
 @application.route("/")
 def index():
@@ -54,7 +38,6 @@ def note(course):
 	abort(404)
 
 @application.route("/note/<string>")
-
 def teach(string):
 	s = string.split('+')
 	# check if input is good
