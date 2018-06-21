@@ -11,6 +11,9 @@ c.execute("CREATE TABLE notes (noteID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL
 c.execute("CREATE TABLE students(studentID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, studentName TEXT NOT NULL)")
 c.execute("CREATE TABLE teachers(teacherID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, teacherName TEXT NOT NULL)")
 
+c.execute("CREATE TABLE `submittedNotes` ( `submittedNoteID`INTEGER NOT NULL, `submittedCourse`TEXT NOT NULL, `submittedTeacher`TEXT NOT NULL, `submittedStudent`TEXT NOT NULL, `submittedDate`TEXT NOT NULL )")
+c.execute("CREATE TABLE submittedFiles (submittedFileID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, submittedNoteID INTEGER NOT NULL, submittedFileName TEXT NOT NULL, path TEXT NOT NULL, FOREIGN KEY(submittedNoteID) REFERENCES submittedNotes(submittedNoteID))")
+
 for course in next(os.walk('static/pdf/Notes'))[1]:
     c.execute("INSERT INTO courses (courseName) VALUES (?);",(course,))
     c.execute("SELECT courseID FROM courses WHERE courseName=?;",(course,))
