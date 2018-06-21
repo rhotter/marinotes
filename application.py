@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, abort
 import os, sqlite3
 
-conn = sqlite3.connect('database-upd3.db')
+conn = sqlite3.connect('database.db')
 c = conn.cursor()
 
 application = Flask(__name__)
