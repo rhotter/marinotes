@@ -68,7 +68,7 @@ def acceptNote(submittedNoteID):
 	# (2) Check if student, teacher, course exists; if not, create one
 	c.execute("SELECT studentID FROM students WHERE studentName=?;",(student,))
 	studentID = c.fetchone()
-	if studentID = None:
+	if studentID == None:
 		c.execute("INSERT INTO students (studentName) VALUES (?);",(student,))
 		c.execute("SELECT studentID FROM students WHERE studentName=?;",(student,))
 		studentID = c.fetchone()
