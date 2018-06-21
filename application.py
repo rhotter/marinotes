@@ -37,6 +37,8 @@ def getNotes(course,teacher,student):
 	conn.commit()
 	conn.close()
 
+def submitNote(course, teacher, student, date):
+
 def acceptNote(submittedNoteID):
 	conn = sqlite3.connect('database.db')
 	c = conn.cursor()
