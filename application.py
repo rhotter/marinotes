@@ -39,13 +39,30 @@ def getNotes(course,teacher,student):
 
 def submitNote(submittedCourse, submittedTeacher, submittedStudent, submittedDate, Files_Paths):
 	# Files_Paths is a list of tuples with file names and paths
+	conn = sqlite3.connect('database.db')
+	c = conn.cursor()
+
+	c.execute("SELECT studentID FROM students WHERE studentName=?;",(student,))
+
 	c.execute("INSERT INTO submittedNotes (submittedCourse,submittedTeacher,submittedStudent,submittedDate) VALUES (?,?,?,?);",(submittedCourse, submittedTeacher, submittedStudent, submittedDate))
-	c.execute("SELECT submittedNoteID from submittedNotes WHERE submittedCourse=? AND submittedTeacher=? AND submittedStudent=? AND submittedDate=?;",(course, teacher, student, date))
+	c.execute("SELECT submittedNoteID from submittedNotes WHERE submittedCourse=? AND submittedTeacher=? AND submittedStudent=? AND submittedDate=?;",(submittedCourse, submittedTeacher, submittedStudent, submittedDate))
 	submittedNoteID = c.fetchone()
 	submittedNoteID = submittedNoteID[0]
 
 	for file_path in Files_Paths:
-		c.execute("INSERT INTO submittedFiles (submittedNoteID, submittedFileName, path) VALUES (?,?);",(submittedNoteID, file_path[0], file_path[1]))
+		c.execute("INSERT INTO submittedFiles (submittedNoteID, submittedFileName, path) VALUES (?,?,?);",(submittedNoteID, file_path[0], file_path[1]))
+
+	conn.commit()
+	conn.close()
+
+# submitNote('Calculus 4','Rinehart','Raffi','06-21-2018',[('hello','/static'),('hi','/static2')])
+
+def rejectNote(submittedNoteID):
+	conn = sqlite3.connect('database.db')
+	c = conn.cursor()
+
+	c.execute("DELETE FROM submittedNotes WHERE submittedNoteID=?",(submittedNoteID,))
+	c.execute("DELETE FROM submittedFiles WHERE submittedNoteID=?",(submittedNoteID,))
 
 	conn.commit()
 	conn.close()
@@ -56,12 +73,12 @@ def acceptNote(submittedNoteID):
 	c = conn.cursor()
 
 	# (1) Get info from submittedNoteID
-	c.execute("SELECT submittedCourse submittedTeacher submittedStudent submittedDate from submittedNotes WHERE submittedNoteId=?;",(submittedNoteID,))
+	c.execute("SELECT submittedCourse, submittedTeacher, submittedStudent, submittedDate FROM submittedNotes WHERE submittedNoteId=?;",(submittedNoteID,))
 	info = c.fetchone()
 	info = info[0]
 	course,teacher,student,date = info[0],info[1],info[2],info[3]
 
-	c.execute("SELECT submittedFileName path FROM submittedFiles WHERE submittedNoteID=?",(submittedNoteID,))
+	c.execute("SELECT submittedFileName, path FROM submittedFiles WHERE submittedNoteID=?",(submittedNoteID,))
 	submittedFiles = c.fetchall()
 
 
@@ -76,17 +93,17 @@ def acceptNote(submittedNoteID):
 
 	c.execute("SELECT teacherID FROM teachers WHERE teacherName=?;",(teacher,))
 	teacherID = c.fetchone()
-	if teacherID = None:
+	if teacherID == None:
 		c.execute("INSERT INTO teachers (teacherName) VALUES (?);",(teacher,))
 		c.execute("SELECT teacherID FROM teachers WHERE teacherName=?;",(teacher,))
 		teacherID = c.fetchone()
 	teacherID = teacherID[0]
 
-	c.execute("SELECT courseID FROM coureses WHERE courseName=?;",(course,))
+	c.execute("SELECT courseID FROM courses WHERE courseName=?;",(course,))
 	courseID = c.fetchone()
-	if courseID = None:
+	if courseID == None:
 		c.execute("INSERT INTO courses (courseName) VALUES (?);",(course,))
-		c.execute("SELECT courseID from coureses WHERE courseName=?;",(course,))
+		c.execute("SELECT courseID FROM courses WHERE courseName=?;",(course,))
 		courseID = c.fetchone()
 	courseID = courseID[0]
 
@@ -94,12 +111,13 @@ def acceptNote(submittedNoteID):
 	c.execute("INSERT INTO notes (courseID,teacherID,studentID,date) VALUES (?,?,?,?);",(courseID,teacherID,studentID,date))
 	c.execute("SELECT noteID FROM notes WHERE courseID=? AND teacherID=? AND studentID=? AND date=?;",(courseID,teacherID,studentID,date))
 	noteID = c.fetchall()
-	if noteID.length > 1:
+	if len(noteID) > 1:
 		return -1 # If note with these names already exist
-	noteID = noteID[0]
+	noteID = noteID[0][0]
 
-	for fileName in submittedFileNames:
-		c.execute("INSERT INTO files (noteID,fileName,date) VALUES (?,?,?);",(noteID,fileName,date))
+	print(submittedFiles)
+	for fileName in submittedFiles:
+		c.execute("INSERT INTO files (noteID,fileName,path) VALUES (?,?,?);",(noteID,fileName[0],fileName[1]))
 
 	# (4) Delete the stuff
 	c.execute("DELETE FROM submittedNotes WHERE submittedNoteID=?",(submittedNoteID,))

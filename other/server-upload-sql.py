@@ -12,7 +12,7 @@ c.execute("CREATE TABLE students(studentID INTEGER PRIMARY KEY AUTOINCREMENT NOT
 c.execute("CREATE TABLE teachers(teacherID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, teacherName TEXT NOT NULL)")
 
 c.execute("CREATE TABLE `submittedNotes` ( `submittedNoteID`INTEGER NOT NULL, `submittedCourse`TEXT NOT NULL, `submittedTeacher`TEXT NOT NULL, `submittedStudent`TEXT NOT NULL, `submittedDate`TEXT NOT NULL )")
-c.execute("CREATE TABLE submittedFiles (submittedFileID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, submittedNoteID INTEGER NOT NULL, submittedFileName TEXT NOT NULL, path TEXT NOT NULL, FOREIGN KEY(submittedNoteID) REFERENCES submittedNotes(submittedNoteID))")
+c.execute("CREATE TABLE "submittedNotes" ( `submittedNoteID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `submittedCourse` TEXT NOT NULL, `submittedTeacher` TEXT NOT NULL, `submittedStudent` TEXT NOT NULL, `submittedDate` TEXT NOT NULL )")
 
 for course in next(os.walk('static/pdf/Notes'))[1]:
     c.execute("INSERT INTO courses (courseName) VALUES (?);",(course,))
