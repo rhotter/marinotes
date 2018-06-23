@@ -1,5 +1,15 @@
 from flask import Flask, render_template, redirect, abort
-import os, sqlite3
+import sqlite3, boto3
+from config import S3_KEY, S3_SECRET, S3_BUCKET
+
+# Note: using autoenv
+
+# Amazon S3 storage
+# s3 = boto3.client('s3',aws_access_key=S3_KEY,aws_secret_access_key=S3_SECRET)
+# s3_resource = boto3.resource('s3')
+# my_bucket = s3_resource.Bucket(S3_BUCKET)
+
+print(S3_BUCKET)
 
 application = Flask(__name__)
 

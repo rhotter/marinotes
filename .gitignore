@@ -4,3 +4,4 @@ css/.DS_Store
 js/.DS_Store
 __pycache__/application.cpython-36.pyc
 __pycache__/application.cpython-36.pyc
+.env
