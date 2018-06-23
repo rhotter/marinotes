@@ -133,6 +133,10 @@ def index():
 	classes = getClasses()
 	return render_template("index.html", classes=classes)
 
+@application.route("/share")
+def share():
+	return render_template(share.html)
+
 @application.route("/class/<course>")
 def note(course):
 	classes = getClasses()
