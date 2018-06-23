@@ -44,23 +44,24 @@ h3 {
 .inputDiv{
 	position: relative;
 	width: inherit;
-	height: 40px;
 }
 
 .inputHolder{
 	width: 200px;
 	margin: 0 auto;
 	padding-bottom: 50px;
+	display: none;
 }
 
 .shareInput{
 	width: inherit;
-	height: inherit;
+	height: 40px;
 	/* add border styles and such*/
 }
 
 .shareDrop{
 	display: none;
+	text
 }
 
 .shareDrop p{

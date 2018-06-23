@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}?version=14"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onkeypress="enterFunction(event)">
 	<div class="indexPageSize">
 		<div class = "header_class">
 			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | Share</span></h1>
@@ -18,21 +18,26 @@
 		</div>
 		<div class="shareBody">
 			<h3>Rules</h3>
+			<button type="button" onclick="nextStep()" id="startButton"> Get started </button>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					what is your name
+					Hey, my name is:
 				</div>
 				<div class="inputDiv">
-					<input type="text" class="shareInput" id="nInput" placeholder="Example: Bob Doe">
+					<input type="text" class="shareInput" id="nInput" placeholder="Bob Doe">
+				</div>
+				<div class="buttonHolder">
+					<button type="button" disabled onclick="prevStep()">previous</button>
+					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					what is your classes
+					And I'm taking:
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
-					<input type="text" onfocus="cShow()" oninput="cFilter()" class="shareInput" id="cInput" placeholder="Enter and select a class">
+					<input type="text" onfocus="cShow()" onclick="cShow()" oninput="cFilter()" class="shareInput" id="cInput" placeholder="Calculus 1">
 				</div>
 				<div class="shareDrop" id="cDrop">
 					<p onclick="cClick(this)">English</p>
@@ -42,14 +47,29 @@
 					<p onclick="cClick(this)">donky</p>
 					<p onclick="cClickNew(this)" id="cNew"></p>
 				</div>
+				<div class="buttonHolder">
+					<button type="button" onclick="prevStep()">previous</button>
+					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					what is your teacher name
+					with:
 				</div>
 				<div class="inputDiv">
-					<div class="xBut" id="tEx">&#10006;</div>
-					<input type="text" class="shareInput" id="tInput" placeholder="Enter and select a teacher">
+					<div class="xBut" id="tEx" onclick="tShow()">&#10006;</div>
+					<input type="text" onfocus="tShow()" onclick="tShow()" oninput="tFilter()" class="shareInput" id="tInput" placeholder="daddy deslands">
+				</div>
+				<div class="shareDrop" id="tDrop">
+					<p onclick="tClick(this)">egan</p>
+					<p onclick="tClick(this)">burton</p>
+					<p onclick="tClick(this)">vinet</p>
+					<p onclick="tClick(this)">paradis</p>
+					<p onclick="cClickNew(this)" id="tNew"></p>
+				</div>
+				<div class="buttonHolder">
+					<button type="button" onclick="prevStep()">previous</button>
+					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 		</div>
