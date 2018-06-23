@@ -78,3 +78,17 @@ h3 {
 	right: 10px;
 	z-index: 1;
 }
+
+.fileUpload{
+
+}
+
+input[type="file"] {
+    display: none;
+}
+.uploadStyle {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}

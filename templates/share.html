@@ -24,11 +24,11 @@
 					Hey, my name is:
 				</div>
 				<div class="inputDiv">
-					<input type="text" class="shareInput" id="nInput" placeholder="Bob Doe">
+					<input type="text" class="shareInput" oninput="nStep()" id="nInput" placeholder="Bob Doe">
 				</div>
 				<div class="buttonHolder">
 					<button type="button" disabled onclick="prevStep()">previous</button>
-					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="nBut" type ="button" disabled style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
@@ -37,7 +37,7 @@
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
-					<input type="text" onfocus="cShow()" onclick="cShow()" oninput="cFilter()" class="shareInput" id="cInput" placeholder="Calculus 1">
+					<input type="text" onclick="cShow(); cEr();" oninput="cFilter(); cShow();" class="shareInput" id="cInput" placeholder="Calculus 1">
 				</div>
 				<div class="shareDrop" id="cDrop">
 					<p onclick="cClick(this)">English</p>
@@ -49,7 +49,7 @@
 				</div>
 				<div class="buttonHolder">
 					<button type="button" onclick="prevStep()">previous</button>
-					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="cBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
@@ -58,19 +58,26 @@
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="tEx" onclick="tShow()">&#10006;</div>
-					<input type="text" onfocus="tShow()" onclick="tShow()" oninput="tFilter()" class="shareInput" id="tInput" placeholder="daddy deslands">
+					<input type="text" onclick="tShow(); tEr();" oninput="tFilter(); tShow();" class="shareInput" id="tInput" placeholder="daddy deslands">
 				</div>
 				<div class="shareDrop" id="tDrop">
 					<p onclick="tClick(this)">egan</p>
 					<p onclick="tClick(this)">burton</p>
 					<p onclick="tClick(this)">vinet</p>
 					<p onclick="tClick(this)">paradis</p>
-					<p onclick="cClickNew(this)" id="tNew"></p>
+					<p onclick="tClickNew(this)" id="tNew"></p>
 				</div>
 				<div class="buttonHolder">
 					<button type="button" onclick="prevStep()">previous</button>
-					<button type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
+			</div>
+			<div class="inputHolder">
+				<label for="file1" class="uploadStyle">
+    			 Custom Upload
+				</label>
+				<input id="file1" type="file" accept=".pdf">
+
 			</div>
 		</div>
 	</div>
