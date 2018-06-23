@@ -44,23 +44,24 @@ h3 {
 .inputDiv{
 	position: relative;
 	width: inherit;
-	height: 40px;
 }
 
 .inputHolder{
 	width: 200px;
 	margin: 0 auto;
 	padding-bottom: 50px;
+	display: none;
 }
 
 .shareInput{
 	width: inherit;
-	height: inherit;
+	height: 40px;
 	/* add border styles and such*/
 }
 
 .shareDrop{
 	display: none;
+	text
 }
 
 .shareDrop p{
@@ -76,4 +77,18 @@ h3 {
 	position:absolute;
 	right: 10px;
 	z-index: 1;
+}
+
+.fileUpload{
+
+}
+
+input[type="file"] {
+    display: none;
+}
+.uploadStyle {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
