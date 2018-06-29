@@ -1,15 +1,12 @@
-from flask import Flask, render_template, redirect, abort
+from flask import Flask, render_template, redirect, abort, request
 import sqlite3, boto3
 from config import S3_KEY, S3_SECRET, S3_BUCKET
 
 # Note: using autoenv
 
 # Amazon S3 storage
-# s3 = boto3.client('s3',aws_access_key=S3_KEY,aws_secret_access_key=S3_SECRET)
-# s3_resource = boto3.resource('s3')
-# my_bucket = s3_resource.Bucket(S3_BUCKET)
 
-print(S3_BUCKET)
+s3 = boto3.client('s3', aws_access_key_id =S3_KEY, aws_secret_access_key=S3_SECRET)
 
 application = Flask(__name__)
 
@@ -138,6 +135,16 @@ def acceptNote(submittedNoteID):
 	conn.commit()
 	conn.close()
 
+def uploadFile():
+	s3_resource = boto3.resource('s3', aws_access_key_id=S3_KEY, aws_secret_access_key=S3_SECRET)
+    my_bucket = s3_resource.Bucket(S3_BUCKET)
+    my_bucket.Object(file.filename).put(Body=file) # can put name of file here
+
+def deleteFile():
+	s3_resource = boto3.resource('s3', aws_access_key_id=S3_KEY, aws_secret_access_key=S3_SECRET)
+    my_bucket = s3_resource.Bucket(S3_BUCKET)
+    my_bucket.Object(file).delete() # can put name of file here
+
 @application.route("/")
 def index():
 	classes = getClasses()
@@ -146,6 +153,10 @@ def index():
 @application.route("/share")
 def share():
 	return render_template("share.html")
+
+@application.route("/share-form")
+def shareForm():
+	return render_template("share-form.html")
 
 @application.route("/class/<course>")
 def note(course):
@@ -175,6 +186,15 @@ def teach(string):
 								notes = getNotes(c,t,st)
 								return render_template("note.html", course=c,teacher=t,student=st,notes=notes)
 	abort(404)
+
+@application.route('/upload', methods=['POST'])
+def upload():
+    file = request.files['file']
+
+	uploadFile(file)
+
+    return "uploaded" # can render_template a page to go to
+
 
 
 if __name__ == "__main__":
