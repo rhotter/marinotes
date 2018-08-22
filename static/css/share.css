@@ -37,6 +37,13 @@ h3 {
 
 }
 
+.shareHead{
+	text-align: center;
+	line-height: 15px;
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+
 .shareBody {
 	margin: 20px;
 }
@@ -47,10 +54,11 @@ h3 {
 }
 
 .inputHolder{
-	width: 200px;
+	width: 300px;
 	margin: 0 auto;
 	padding-bottom: 50px;
 	display: none;
+	line-height: 30px;
 }
 
 .shareInput{
@@ -77,6 +85,7 @@ h3 {
 	position:absolute;
 	right: 10px;
 	z-index: 1;
+	top: 6px;
 }
 
 .fileUpload{

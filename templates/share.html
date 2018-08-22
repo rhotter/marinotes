@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}?version=14"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onkeypress="enterFunction(event)">
+<body onkeypress="enterFunction(event)" onload="nextStep();">
 	<div class="indexPageSize">
 		<div class = "header_class">
 			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | Share</span></h1>
@@ -17,8 +17,10 @@
 			<h2>Share your notes</h2>
 		</div>
 		<div class="shareBody">
-			<h3>Rules</h3>
-			<button type="button" onclick="nextStep()" id="startButton"> Get started </button>
+			<div class="shareHead"> 🔥 Thank You 🔥</div>
+
+			<button type="button" onclick="nextStep()" id="startButton"> Get started </button> 	<!-- obsolute but neccesary -->
+
 			<div class="inputHolder">
 				<div class="questionStyle">
 					Hey, my name is:
@@ -27,7 +29,7 @@
 					<input type="text" class="shareInput" oninput="nStep()" id="nInput" placeholder="Bob Doe">
 				</div>
 				<div class="buttonHolder">
-					<button type="button" disabled onclick="prevStep()">previous</button>
+					<button style="display: hidden;" type="button" disabled onclick="prevStep()">previous</button>
 					<button id="nBut" type ="button" disabled style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
@@ -73,11 +75,17 @@
 				</div>
 			</div>
 			<div class="inputHolder">
+				<div>
+					some infor about the upload
+				</div>
 				<label for="file1" class="uploadStyle">
-    			 Custom Upload
+    			 Upload Notes
 				</label>
-				<input id="file1" type="file" accept=".pdf">
-
+				<input id="file1" type="file" accept=".pdf" multiple>
+			<div class="buttonHolder">
+				<button type="button" onclick="prevStep()">previous</button>
+				<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">Submit</button>
+			</div>
 			</div>
 		</div>
 	</div>
