@@ -51,7 +51,7 @@ def upload():
 	folder = request.form.get('folder')
 	name = request.form.get('name')
 	path = folder + name
-	uploadFile(file, path
+	uploadFile(file, path)
 	return "uploaded" # can render_template a page to go to
 
 if __name__ == "__main__":
