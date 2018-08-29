@@ -52,7 +52,11 @@ def upload():
 	name = request.form.get('name')
 	path = folder + name
 	uploadFile(file, path)
+<<<<<<< HEAD
 	return 'uploaded' # can render_template a page to go to
+=======
+	return "uploaded" # can render_template a page to go to
+>>>>>>> ebcf84747b31c391f699baf1f059ea4dfc6c9fe4
 
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
