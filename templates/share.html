@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}?version=14"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onkeypress="enterFunction(event)" onload="nextStep();">
+<body onkeypress="enterFunction(event)">
 	<div class="indexPageSize">
 		<div class = "header_class">
 			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | Share</span></h1>
@@ -16,26 +16,24 @@
 		<div class = "head2">
 			<h2>Share your notes</h2>
 		</div>
-
-		<div class="shareHead"> 🔥 Thank You 🔥</div>
-
-		<button type="button" onclick="nextStep()" id="startButton"> Get started </button> 	<!-- obsolute but neccesary -->
-			<div class="shareBody">
+		<div class="shareBody">
+			<h3>Rules</h3>
+			<button type="button" onclick="nextStep()" id="startButton"> Get started </button>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					Hey 👋, my name is:
+					Hey, my name is:
 				</div>
 				<div class="inputDiv">
-					<div class="xBut" id="nEx" onclick="nameOld();">&#10006;</div>
-					<input type="text" class="shareInput" oninput="nStep()" onfocus="nameOld();" onfocusout="nameFinal();" id="nInput" placeholder="Bob Doe">
+					<input type="text" class="shareInput" oninput="nStep()" id="nInput" placeholder="Bob Doe">
 				</div>
 				<div class="buttonHolder">
-					<button id="nBut" type ="button" class="nextBut" disabled   onclick="nextStep()">next</button>
+					<button type="button" disabled onclick="prevStep()">previous</button>
+					<button id="nBut" type ="button" disabled style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					📚 And I'm taking:
+					And I'm taking:
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
@@ -50,12 +48,13 @@
 					<p onclick="cClickNew(this)" id="cNew"></p>
 				</div>
 				<div class="buttonHolder">
-					<button id="cBut" disabled type ="button" class="nextBut"   onclick="nextStep()">next</button>
+					<button type="button" onclick="prevStep()">previous</button>
+					<button id="cBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					👨‍🎓 with:
+					with:
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="tEx" onclick="tShow()">&#10006;</div>
@@ -69,20 +68,16 @@
 					<p onclick="tClickNew(this)" id="tNew"></p>
 				</div>
 				<div class="buttonHolder">
-					<button id="tBut" disabled type ="button" class="nextBut"   onclick="nextStep()">next</button>
+					<button type="button" onclick="prevStep()">previous</button>
+					<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
-				<div>
-					some infor about the upload
-				</div>
 				<label for="file1" class="uploadStyle">
-    			 Upload Notes
+    			 Custom Upload
 				</label>
-				<input id="file1" type="file" accept=".pdf" multiple>
-			<div class="buttonHolder">
-				<button id="tBut" disabled type ="button" class="nextBut"   onclick="nextStep()">Done</button>
-			</div>
+				<input id="file1" type="file" accept=".pdf">
+
 			</div>
 		</div>
 	</div>
