@@ -16,26 +16,26 @@
 		<div class = "head2">
 			<h2>Share your notes</h2>
 		</div>
-		<div class="shareBody">
-			<div class="shareHead"> 🔥 Thank You 🔥</div>
 
-			<button type="button" onclick="nextStep()" id="startButton"> Get started </button> 	<!-- obsolute but neccesary -->
+		<div class="shareHead"> 🔥 Thank You 🔥</div>
 
+		<button type="button" onclick="nextStep()" id="startButton"> Get started </button> 	<!-- obsolute but neccesary -->
+			<div class="shareBody">
 			<div class="inputHolder">
 				<div class="questionStyle">
-					Hey, my name is:
+					Hey 👋, my name is:
 				</div>
 				<div class="inputDiv">
-					<input type="text" class="shareInput" oninput="nStep()" id="nInput" placeholder="Bob Doe">
+					<div class="xBut" id="nEx" onclick="nameOld();">&#10006;</div>
+					<input type="text" class="shareInput" oninput="nStep()" onfocus="nameOld();" onfocusout="nameFinal();" id="nInput" placeholder="Bob Doe">
 				</div>
 				<div class="buttonHolder">
-					<button style="display: hidden;" type="button" disabled onclick="prevStep()">previous</button>
-					<button id="nBut" type ="button" disabled style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="nBut" type ="button" class="nextBut" disabled   onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					And I'm taking:
+					📚 And I'm taking:
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="cEx" onclick="cShow()">&#10006;</div>
@@ -50,13 +50,12 @@
 					<p onclick="cClickNew(this)" id="cNew"></p>
 				</div>
 				<div class="buttonHolder">
-					<button type="button" onclick="prevStep()">previous</button>
-					<button id="cBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="cBut" disabled type ="button" class="nextBut"   onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
 				<div class="questionStyle">
-					with:
+					👨‍🎓 with:
 				</div>
 				<div class="inputDiv">
 					<div class="xBut" id="tEx" onclick="tShow()">&#10006;</div>
@@ -70,8 +69,7 @@
 					<p onclick="tClickNew(this)" id="tNew"></p>
 				</div>
 				<div class="buttonHolder">
-					<button type="button" onclick="prevStep()">previous</button>
-					<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">next</button>
+					<button id="tBut" disabled type ="button" class="nextBut"   onclick="nextStep()">next</button>
 				</div>
 			</div>
 			<div class="inputHolder">
@@ -83,8 +81,7 @@
 				</label>
 				<input id="file1" type="file" accept=".pdf" multiple>
 			<div class="buttonHolder">
-				<button type="button" onclick="prevStep()">previous</button>
-				<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">Submit</button>
+				<button id="tBut" disabled type ="button" class="nextBut"   onclick="nextStep()">Done</button>
 			</div>
 			</div>
 		</div>
