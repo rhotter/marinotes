@@ -39,29 +39,6 @@ h2 {
 	align-content: space-between;
 }
 
-@media (max-width: 500px) {
-	.big {
-		font-size: 10vw;
-	}
-	.head2 {
-		height: 150px;
-	}
-}
-
-.filtHead {
-	margin-bottom: 10px;
-	font-weight: 700;
-}
-
-.filterBar {
-	margin: 15px 10px 5px 15px;
-	padding-bottom: 15px;
-	border-bottom-style: solid;
-	border-bottom-color: #CCCCCC;
-	border-bottom-width: 1px;
-	position: relative;
-}
-
 #filtBar{
 	color: #666666;
 	font-size: 16px;
