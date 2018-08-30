@@ -1,15 +1,26 @@
 //javascript for share page
 var step = -1;
 
+function nameFinal(){
+  document.getElementById('nInput').style.backgroundColor = "#cccccc";
+  document.getElementById('nEx').style.display = "block";
+}
+
+function nameOld(){
+  document.getElementById('nInput').style.backgroundColor = "white";
+    document.getElementById('nEx').style.display = "none";
+}
 
 function nextStep(){
   step++;
   document.getElementById("startButton").style.display = "none";
   var ins =  document.getElementsByClassName('inputHolder');
   for (var i = 0; i < ins.length; i++) {
-    ins[i].style.display = "none";
+    ins[i].style.pointerEvents = "none";
   }
-  ins[step].style.display = "block";
+  for (var i = 0; i <= step; i++){
+    ins[i].style.pointerEvents = "auto";
+  }
   ins[step].getElementsByTagName("input")[0].focus();
 }
 
@@ -41,23 +52,17 @@ function prevStep(){
   document.getElementById("startButton").style.display = "none";
   var ins =  document.getElementsByClassName('inputHolder');
   for (var i = 0; i < ins.length; i++) {
-    ins[i].style.display = "none";
+    ins[i].style.pointerEvents = "none";
   }
-  ins[step].style.display = "block";
+  ins[step].style.pointerEvents = "auto";
 }
 
-function hideButt(){
-  var butt = document.getElementsByClassName("buttonHolder");
-  for (var i = 0; i < butt.length; i++) {
-    butt[i].style.display = "none";
-  }
+function hideButt(ide){
+  document.getElementById(ide).style.display="none";
 }
 
-function showButt(){
-  var butt = document.getElementsByClassName("buttonHolder");
-  for (var i = 0; i < butt.length; i++) {
-    butt[i].style.display = "block";
-  }
+function showButt(ide){
+  document.getElementById(ide).style.display="inline-block";
 }
 
 function nStep(){
@@ -66,6 +71,7 @@ function nStep(){
 
 //start with the fucntion that shows the stuffs
 function cShow(){
+  cDropStyleDown();
   document.getElementById('cDrop').style.display = "block";
   document.getElementById("cEx").style.display = "none";
   //make the seletion disapear
@@ -75,8 +81,7 @@ function cShow(){
   document.getElementById("cInput").style.removeProperty('background-color');
 
   document.getElementById('cBut').disabled = true;
-  hideButt();
-
+  hideButt("cBut");
   //re run filterFunction
   cFilter();
 }
@@ -114,31 +119,35 @@ function cFilter(){
 }
 
 function cClick(ele){
+  cDropStyleUp();
   var inp = document.getElementById("cInput");
   //set the text field to the selection
   var sel = ele.innerHTML;
   inp.value = sel;
 
   //make it look final
-  inp.style.backgroundColor = "blue";
+  inp.style.backgroundColor = "#cccccc";
   document.getElementById("cEx").style.display = "block";
 
   //make dropdown disapearing
   document.getElementById('cDrop').style.display = "none";
 
-  showButt();
+  showButt("cBut");
   document.getElementById('cBut').disabled = false;
+  nextStep();
 }
 
 function cClickNew(){
+  cDropStyleUp();
   //make it look final
-  document.getElementById("cInput").style.backgroundColor = "blue";
+  document.getElementById("cInput").style.backgroundColor = "#cccccc";
   document.getElementById("cEx").style.display = "block";
 
   //make dropdown disapearing
   document.getElementById('cDrop').style.display = "none";
-  showButt();
+  showButt("cBut");
   document.getElementById('cBut').disabled = false;
+  nextStep();
 }
 
 function cEr() {
@@ -146,9 +155,21 @@ function cEr() {
   cFilter();
 }
 
+function cDropStyleDown(){
+  document.getElementById("cInput").style.borderBottomRightRadius = "0px";
+  document.getElementById("cInput").style.borderBottomLeftRadius = "0px";
+}
+
+function cDropStyleUp(){
+  document.getElementById("cInput").style.borderBottomRightRadius = "8px";
+  document.getElementById("cInput").style.borderBottomLeftRadius = "8px";
+}
+
+
 //teacher stuf ***************************8
 
 function tShow(){
+  tDropStyleDown();
   document.getElementById('tDrop').style.display = "block";
   document.getElementById("tEx").style.display = "none";
   //make the seletion disapear
@@ -158,7 +179,7 @@ function tShow(){
   document.getElementById("tInput").style.removeProperty('background-color');
 
   document.getElementById('tBut').disabled = true;
-  hideButt();
+  hideButt("tBut");
 
 
   //re run filterFunction
@@ -198,38 +219,54 @@ function tFilter(){
 }
 
 function tClick(ele){
+  tDropStyleUp();
   var inp = document.getElementById("tInput");
   //set the text field to the selection
   var sel = ele.innerHTML;
   inp.value = sel;
 
   //make it look final
-  inp.style.backgroundColor = "blue";
+  inp.style.backgroundColor = "#cccccc ";
   document.getElementById("tEx").style.display = "block";
 
   //make dropdown disapearing
   document.getElementById('tDrop').style.display = "none";
 
-  showButt();
+  showButt("tBut");
   document.getElementById('tBut').disabled = false;
+  nextStep();
 }
 
 function tClickNew(){
+  tDropStyleUp();
   //make it look final
-  document.getElementById("tInput").style.backgroundColor = "blue";
+  document.getElementById("tInput").style.backgroundColor = "#cccccc ";
   document.getElementById("tEx").style.display = "block";
 
   //make dropdown disapearing
   document.getElementById('tDrop').style.display = "none";
 
-  showButt();
+  showButt("tBut");
   document.getElementById('tBut').disabled = false;
+  nextStep();
+
 }
 
 function tEr(){
     document.getElementById("tInput").value = "";
     tFilter();
 }
+
++function tDropStyleDown(){
+  document.getElementById("tInput").style.borderBottomRightRadius = "0px";
+  document.getElementById("tInput").style.borderBottomLeftRadius = "0px";
+}
+
+function tDropStyleUp(){
+  document.getElementById("tInput").style.borderBottomRightRadius = "8px";
+  document.getElementById("tInput").style.borderBottomLeftRadius = "8px";
+}
+
 
 //start creating the upload
 function createUpload() {
