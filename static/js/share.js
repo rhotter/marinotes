@@ -226,7 +226,7 @@ function tClick(ele){
   inp.value = sel;
 
   //make it look final
-  inp.style.backgroundColor = "#cccccc ";
+  inp.style.backgroundColor = "#cccccc";
   document.getElementById("tEx").style.display = "block";
 
   //make dropdown disapearing
@@ -240,7 +240,7 @@ function tClick(ele){
 function tClickNew(){
   tDropStyleUp();
   //make it look final
-  document.getElementById("tInput").style.backgroundColor = "#cccccc ";
+  document.getElementById("tInput").style.backgroundColor = "#cccccc";
   document.getElementById("tEx").style.display = "block";
 
   //make dropdown disapearing
