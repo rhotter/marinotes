@@ -2,8 +2,10 @@
 var step = -1;
 
 function nameFinal(){
-  document.getElementById('nInput').style.backgroundColor = "#cccccc";
-  document.getElementById('nEx').style.display = "block";
+  if (document.getElementById('nInput').value != ""){
+    document.getElementById('nInput').style.backgroundColor = "#cccccc";
+    document.getElementById('nEx').style.display = "block";
+  }
 }
 
 function nameOld(){
@@ -13,61 +15,44 @@ function nameOld(){
 
 function nextStep(){
   step++;
-  document.getElementById("startButton").style.display = "none";
+  // document.getElementById("startButton").style.display = "none";
   var ins =  document.getElementsByClassName('inputHolder');
-  for (var i = 0; i < ins.length; i++) {
-    ins[i].style.pointerEvents = "none";
-  }
-  for (var i = 0; i <= step; i++){
-    ins[i].style.pointerEvents = "auto";
-  }
+  // for (var i = 0; i < ins.length; i++) {
+  //   ins[i].style.pointerEvents = "none";
+  // }
+  // for (var i = 0; i <= step; i++){
+  //   ins[i].style.pointerEvents = "auto";
+  // }
   ins[step].getElementsByTagName("input")[0].focus();
 }
 
 function enterFunction(event){
 	if (event.keyCode == 13 || event.which == 13){{}
-    if(step == -1){
-      nextStep();
-    }
-    if (step == 0){
-      if (document.getElementById('nBut').disabled == false){
-        nextStep();
-      }
-    }
-    if (step == 1){
-      if (document.getElementById('cBut').disabled == false){
-        nextStep();
-      }
-    }
-    if (step == 2){
-      if (document.getElementById('tBut').disabled == false){
-        nextStep();
-      }
-    }
+    nextStep();
   }
 }
 
-function prevStep(){
-  step--;
-  document.getElementById("startButton").style.display = "none";
-  var ins =  document.getElementsByClassName('inputHolder');
-  for (var i = 0; i < ins.length; i++) {
-    ins[i].style.pointerEvents = "none";
-  }
-  ins[step].style.pointerEvents = "auto";
-}
+// function prevStep(){
+//   step--;
+//   document.getElementById("startButton").style.display = "none";
+//   var ins =  document.getElementsByClassName('inputHolder');
+//   for (var i = 0; i <   ins.length; i++) {
+//     ins[i].style.pointerEvents = "none";
+//   }
+//   ins[step].style.pointerEvents = "auto";
+// }
 
-function hideButt(ide){
-  document.getElementById(ide).style.display="none";
-}
+// function hideButt(ide){
+//   document.getElementById(ide).style.display="none";
+// }
 
-function showButt(ide){
-  document.getElementById(ide).style.display="inline-block";
-}
+// function showButt(ide){
+//   document.getElementById(ide).style.display="inline-block";
+// }
 
-function nStep(){
-  document.getElementById('nBut').disabled = false;
-}
+// function nStep(){
+//   document.getElementById('nBut').disabled = false;
+// }
 
 //start with the fucntion that shows the stuffs
 function cShow(){
@@ -80,8 +65,8 @@ function cShow(){
   //clear some properties
   document.getElementById("cInput").style.removeProperty('background-color');
 
-  document.getElementById('cBut').disabled = true;
-  hideButt("cBut");
+  //document.getElementById('cBut').disabled = true;
+  //hideButt("cBut");
   //re run filterFunction
   cFilter();
 }
@@ -132,8 +117,8 @@ function cClick(ele){
   //make dropdown disapearing
   document.getElementById('cDrop').style.display = "none";
 
-  showButt("cBut");
-  document.getElementById('cBut').disabled = false;
+  //showButt("cBut");
+  //document.getElementById('cBut').disabled = false;
   nextStep();
 }
 
@@ -145,8 +130,8 @@ function cClickNew(){
 
   //make dropdown disapearing
   document.getElementById('cDrop').style.display = "none";
-  showButt("cBut");
-  document.getElementById('cBut').disabled = false;
+  //showButt("cBut");
+  //document.getElementById('cBut').disabled = false;
   nextStep();
 }
 
@@ -178,8 +163,8 @@ function tShow(){
   //clear some properties
   document.getElementById("tInput").style.removeProperty('background-color');
 
-  document.getElementById('tBut').disabled = true;
-  hideButt("tBut");
+  //document.getElementById('tBut').disabled = true;
+  //hideButt("tBut");
 
 
   //re run filterFunction
@@ -232,8 +217,8 @@ function tClick(ele){
   //make dropdown disapearing
   document.getElementById('tDrop').style.display = "none";
 
-  showButt("tBut");
-  document.getElementById('tBut').disabled = false;
+  //showButt("tBut");
+  //document.getElementById('tBut').disabled = false;
   nextStep();
 }
 
@@ -246,8 +231,8 @@ function tClickNew(){
   //make dropdown disapearing
   document.getElementById('tDrop').style.display = "none";
 
-  showButt("tBut");
-  document.getElementById('tBut').disabled = false;
+  //showButt("tBut");
+  //document.getElementById('tBut').disabled = false;
   nextStep();
 
 }
