@@ -257,7 +257,7 @@ function tEr(){
     tFilter();
 }
 
-+function tDropStyleDown(){
+function tDropStyleDown(){
   document.getElementById("tInput").style.borderBottomRightRadius = "0px";
   document.getElementById("tInput").style.borderBottomLeftRadius = "0px";
 }
