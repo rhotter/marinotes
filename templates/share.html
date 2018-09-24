@@ -79,48 +79,28 @@
 					<div class="rectHold">
 						<div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div>
 						<div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div>
-						<div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div>
+						<div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div><div class="rectDRW"></div>
 						<div class="rectDRW"></div>
 					</div>
 
-					<div class="noteTitle"> Upload Notes </div>
-					<div class="noteBody">
-						these are the informations about making notes
+					<div class="noteTitle">Notes</div>
+					<div id="noteBd" class="noteBody">
+						<div style="text-align: center;">Just a couple rules:</div>
 						<ul>
-							<li>no tests</li>
-							<li> ur own material</li>
-							<li>order your notes (1. reiman sums 2.your mom)</li>
+							<li>No tests</li>
+							<li>Your own material</li>
+							<li>Order your notes <br> 1. Reiman sums<br> 2. Integrals </li>
+							<li>All uploads subject to moderation</li>
 						</ul>
-
 					 </div>
-					<button class="noteAgr"> I understand </button>
-
+					 <div id='notePr' class="notePrev"></div>
 					<div class="noteUpHolder">
 						<label for="file1" class="uploadStyle">
 							Upload Notes
 						</label>
-						<input id="file1" type="file" accept=".pdf" multiple>
+						<input oninput="inputNotes();"id="file1" type="file" accept=".pdf" multiple>
 					</div>
-
 				</div>
-
-
-			</div>
-
-			<div style="text-align: center;" class="inputHolder">
-				<div>
-					some infor about the upload
-				</div>
-				<label for="file1" class="uploadStyle">
-					Upload Notes
-				</label>
-				<input id="file1" type="file" accept=".pdf" multiple>
-				<p> some fancy info </p>
-
-							<!-- <div class="buttonHolder">
-								<button type="button" onclick="prevStep()">previous</button>
-								<button id="tBut" disabled type ="button" style="text-align:right;" onclick="nextStep()">Submit</button>
-							</div> -->
 			</div>
 		</div>
 	</div>

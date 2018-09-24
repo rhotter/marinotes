@@ -142,8 +142,8 @@ input[type="file"] {
 		border-bottom-right-radius: 8px;
 		border-bottom-left-radius: 8px;
 		font-size: 16px;
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding-top: 12px;
+		padding-bottom: 0px;
 		height: 35px;
 		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.045);
 		text-align: center;
@@ -156,10 +156,13 @@ input[type="file"] {
 .pageDRW{
 	border: 3px solid black;
 	border-radius: 10px;
-	height: 400px;
-	width: 250px;
+	height: 350px;
+	width: 200px;
 	margin: 0 auto;
 	position: relative;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 10px;
 }
 
 .rectHold{
@@ -177,9 +180,23 @@ input[type="file"] {
 }
 
 .noteTitle{
+	font-family: Lato, sans-serif;
+  font-size: 18pt;
+  color: black;
+	text-align: center;
+	font-weight: 550;
+	padding-top: 20px;
+}
 
+.noteUpHolder{
+	text-align: center;
 }
 
 .noteBody{
+	height: 200px;
+}
 
+.notePrev{
+	height: 200px;
+	display: none;
 }

@@ -257,3 +257,38 @@ function tDropStyleUp(){
 function createUpload() {
   //some stuff
 }
+
+function inputNotes(){
+  document.getElementById('noteBd').style.display = "none";
+  document.getElementById('notePr').style.display = "block";
+
+  var x = document.getElementById("file1");
+  var txt = "";
+  var nms = [];
+  if ('files' in x) {
+      if (x.files.length == 0) {
+          txt = "Select one or more files.";
+      } else {
+          for (var i = 0; i < x.files.length; i++) {
+              var file = x.files[i];
+              if ('name' in file) {
+                  nms.push(file.name);
+              }
+          }
+      }
+  }
+  else {
+      if (x.value == "") {
+          txt += "Select one or more files.";
+      } else {
+          txt += "The files property is not supported by your browser!";
+          txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+      }
+  }
+  var sorted = nms.sort();
+  for (var i = 0; i < sorted.length; i++) {
+    txt += sorted[i] + "<br>";
+  }
+  document.getElementById("notePr").innerHTML = txt;
+
+}
