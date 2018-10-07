@@ -54,6 +54,10 @@ def upload():
 	uploadFile(file, path)
 	return 'uploaded' # can render_template a page to go to
 
+@application.route('/edit', methods=['GET'])
+def edit():
+	return render_template("edit.html")
+
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production app.
