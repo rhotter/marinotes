@@ -1,5 +1,13 @@
 //javascript for share page
-var step = -1;
+var step = 0;
+
+function loadFunc(){
+  var divs = document.getElementsByClassName('inputHolder');
+  for (var i = 0; i < divs.length; i++) {
+    divs[i].style.display = 'none';
+  }
+  divs[0].style.display = 'block';
+}
 
 function nameFinal(){
   if (document.getElementById('nInput').value != ""){
@@ -15,14 +23,11 @@ function nameOld(){
 
 function nextStep(){
   step++;
-  // document.getElementById("startButton").style.display = "none";
   var ins =  document.getElementsByClassName('inputHolder');
-  // for (var i = 0; i < ins.length; i++) {
-  //   ins[i].style.pointerEvents = "none";
-  // }
-  // for (var i = 0; i <= step; i++){
-  //   ins[i].style.pointerEvents = "auto";
-  // }
+  for (var i = 0; i < ins.length; i++) {
+    ins[i].style.display = "none";
+  }
+  ins[step].style.display = "block";
   ins[step].getElementsByTagName("input")[0].focus();
 }
 
@@ -32,27 +37,26 @@ function enterFunction(event){
   }
 }
 
-// function prevStep(){
-//   step--;
-//   document.getElementById("startButton").style.display = "none";
-//   var ins =  document.getElementsByClassName('inputHolder');
-//   for (var i = 0; i <   ins.length; i++) {
-//     ins[i].style.pointerEvents = "none";
-//   }
-//   ins[step].style.pointerEvents = "auto";
-// }
+function prevStep(){
+  step--;
+  var divs = document.getElementsByClassName('inputHolder');
+  for (var i = 0; i < divs.length; i++) {
+    divs[i].style.display = 'none';
+  }
+  divs[step].style.display = 'block';
+}
 
-// function hideButt(ide){
-//   document.getElementById(ide).style.display="none";
-// }
+function hideButt(ide){
+  document.getElementById(ide).style.display="none";
+}
 
-// function showButt(ide){
-//   document.getElementById(ide).style.display="inline-block";
-// }
+function showButt(ide){
+  document.getElementById(ide).style.display="inline-block";
+}
 
-// function nStep(){
-//   document.getElementById('nBut').disabled = false;
-// }
+function nStep(){
+  document.getElementsByClassName('inputHolder')[step].getElementsByClassName('nextBut')[0].disabled = false;
+}
 
 //start with the fucntion that shows the stuffs
 function cShow(){
@@ -104,6 +108,7 @@ function cFilter(){
 }
 
 function cClick(ele){
+  nStep();
   cDropStyleUp();
   var inp = document.getElementById("cInput");
   //set the text field to the selection
@@ -119,10 +124,10 @@ function cClick(ele){
 
   //showButt("cBut");
   //document.getElementById('cBut').disabled = false;
-  nextStep();
 }
 
 function cClickNew(){
+  nStep();
   cDropStyleUp();
   //make it look final
   document.getElementById("cInput").style.backgroundColor = "#cccccc";
@@ -132,7 +137,6 @@ function cClickNew(){
   document.getElementById('cDrop').style.display = "none";
   //showButt("cBut");
   //document.getElementById('cBut').disabled = false;
-  nextStep();
 }
 
 function cEr() {
@@ -204,6 +208,7 @@ function tFilter(){
 }
 
 function tClick(ele){
+  nStep();
   tDropStyleUp();
   var inp = document.getElementById("tInput");
   //set the text field to the selection
@@ -219,10 +224,10 @@ function tClick(ele){
 
   //showButt("tBut");
   //document.getElementById('tBut').disabled = false;
-  nextStep();
 }
 
 function tClickNew(){
+  nStep();
   tDropStyleUp();
   //make it look final
   document.getElementById("tInput").style.backgroundColor = "#cccccc";
@@ -233,7 +238,6 @@ function tClickNew(){
 
   //showButt("tBut");
   //document.getElementById('tBut').disabled = false;
-  nextStep();
 
 }
 
