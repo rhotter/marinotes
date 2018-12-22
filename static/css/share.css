@@ -117,6 +117,13 @@ h3 {
 	font-size: 10pt;
 }
 
+.buttonHolder{
+	-webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+}
+
 .prevBut{
 	border: 1px solid #C1C4C7;
 	border-top-right-radius: 4px;
@@ -154,7 +161,7 @@ input[type="file"] {
 		border-bottom-right-radius: 8px;
 		border-bottom-left-radius: 8px;
 		font-size: 16px;
-		padding-top: 12px;
+		padding-top: 6px;
 		padding-bottom: 0px;
 		height: 35px;
 		box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05), 0 6px 10px 0 rgba(0, 0, 0, 0.045);
@@ -174,7 +181,8 @@ input[type="file"] {
 	position: relative;
 	padding-left: 25px;
 	padding-right: 25px;
-	padding-top: 10px;
+	padding-top: 0px;
+	line-height: 1.6;
 }
 
 .rectHold{
@@ -197,18 +205,25 @@ input[type="file"] {
   color: black;
 	text-align: center;
 	font-weight: 550;
-	padding-top: 20px;
+	padding-top: 15px;
+	padding-bottom: 10px;
 }
 
 .noteUpHolder{
 	text-align: center;
+	position: absolute;
+	bottom: 25px;
+	left: 50%;
+	width: 180px;
+	margin-left: -90px;
 }
 
 .noteBody{
-	height: 200px;
+	height: 225px;
 }
 
 .notePrev{
-	height: 200px;
+	height: 225	px;
 	display: none;
+	word-break: break-all;
 }

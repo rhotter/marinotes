@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="{{url_for('static', filename='js/share.js') }}?version=14"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onkeypress="//enterFunction(event)" onload="loadFunc();">
+<body onkeypress="enterFunction(event)" onload="loadFunc();">
 	<div class="indexPageSize">
 		<div class = "header_class">
 			<h1><a href = "/">Marinotes</a> <span class="subTitle"> | Share</span></h1>
@@ -104,6 +104,11 @@
 						<input oninput="inputNotes();"id="file1" type="file" accept=".pdf" multiple>
 					</div>
 				</div>
+			</div>
+			<div class="buttonHolder">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<button  type ="button" class="prevBut"   onclick="prevStep()">back</button>
+				<button disabled type ="button" class="nextBut"   onclick="nextStep()">done</button>
 			</div>
 		</div>
 		</div>
