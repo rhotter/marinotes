@@ -5,3 +5,4 @@ __pycache__/application.cpython-36.pyc
 __pycache__/application.cpython-36.pyc
 .env
 static/pdf/
+secret.py
