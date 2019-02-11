@@ -138,7 +138,18 @@ def admin():
     error = None
     if request.method == "POST":
         if request.form['password'] == password:
-            return render_template("admin.html")
+            submissions = [{'course': 'Linear Algebra',
+                            'teacher': 'Riccardo Catalano',
+                            'author': 'Raffi Hotter',
+                            'date': 'March 1, 2018',
+                            'files': ['Notes-1.pdf', 'Notes-2.pdf']},
+                           {'course': 'Linear Algebra',
+                            'teacher': 'Riccardo Catalano',
+                            'author': 'Raffi Hotter',
+                            'date': 'March 1, 2018',
+                            'files': ['Notes-1.pdf', 'Notes-2.pdf']}
+                            ]
+            return render_template("admin.html", submissions=submissions)
         else:
             error = "Incorrect password"
     return render_template("admin-login.html", error=error)
