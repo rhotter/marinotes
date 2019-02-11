@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo
 from config import S3_KEY, S3_SECRET, S3_BUCKET
 from werkzeug.utils import secure_filename
 import boto3
-from secret import MONGO_URI, bucket_name, user, password
+from secret import MONGO_URI, bucket_name, user, AWS_SECRET_KEY, password
 
 # S3_BUCKET = os.environ.get("S3_BUCKET_NAME")
 # S3_KEY = os.environ.get("S3_ACCESS_KEY")
@@ -28,8 +28,7 @@ def name_to_id(class_name):
 def id_to_name(class_id):
     return class_id.replace('%20', ' ')
 
-def upload_notes(class_name, teacher, author, date, file_names, files=None,
-                 approved=False):
+def upload_notes(class_name, teacher, author, date, file_names, approved=False):
     # Figure out how much has already been stored
     class_info = d.find_one({'_id': name_to_id(class_name)})
     teacher_info = None
@@ -69,11 +68,13 @@ def upload_notes(class_name, teacher, author, date, file_names, files=None,
                             'approved': approved })
     author_info = d.find_one({'_id': author_info_id})
     file_ids = []
+    base_url = '{}/{}/{}/'.format(name_to_id(class_name), name_to_id(teacher),
+                                  name_to_id(author))
     for file_name in file_names:
-        file_ids.append(d.insert({'type': 'note',
+        file_ids.append(d.insert({'url': base_url + file_name,
+                                  'type': 'note',
                                   'name': file_name,
                                   'parent': author_info['_id'],
-                                  'url': 'someUrl',
                                   'approved': approved}))
     # propagate back up to update children
     d.update_one({'_id': author_info['_id']},
@@ -99,8 +100,7 @@ AWS S3
 """
 
 def upload_file(file, path):
-
-    s3_resource = boto3.resource('s3', aws_access_key_id=user, aws_secret_access_key=password)
+    s3_resource = boto3.resource('s3', aws_access_key_id=user, aws_secret_access_key=AWS_SECRET_KEY)
     my_bucket = s3_resource.Bucket(bucket_name)
     my_bucket.Object(path).put(Body=file, ContentType='application/pdf') # can put name of file here
 
@@ -119,10 +119,29 @@ def upload_test():
 @application.route("/upload-test-post", methods=["POST"])
 def upload_test_post():
     files = request.files.getlist('file')
+    class_name = request.form['course']
+    teacher = request.form['teacher']
+    author = request.form['author']
+    date = ''
+    base_url = '{}/{}/{}/'.format(class_name, teacher, author)
+    file_names = []
     for file in files:
         file.filename = secure_filename(file.filename)
-        # upload_file(file, 'static/pdf/Notes/extra/{}'.format(file.filename))
+        file_names.append(file.filename)
+        url = base_url + file.filename
+        upload_file(file, url)
+    upload_notes(class_name, teacher, author, date, file_names, approved=False)
     return 'uploaded'
+
+@application.route("/admin", methods=["GET", "POST"])
+def admin():
+    error = None
+    if request.method == "POST":
+        if request.form['password'] == password:
+            return render_template("admin.html")
+        else:
+            error = "Incorrect password"
+    return render_template("admin-login.html", error=error)
 
 @application.route("/")
 def index():

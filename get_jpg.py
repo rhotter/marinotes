@@ -2,7 +2,7 @@ from pdf2image import convert_from_path
 from PIL import Image
 import boto3
 import io
-from secret import bucket_name, user, password
+from secret import bucket_name, user, AWS_SECRET_KEY
 
 # temp_file_path = 'temp/' + file.filename
 # file.save(temp_file_path)
@@ -31,6 +31,7 @@ def convert_pdf_to_jpeg(file_path, output_path):
 
     image.save(buffer, 'JPEG')
 
-    s3_resource = boto3.resource('s3', aws_access_key_id=user, aws_secret_access_key=password)
+    s3_resource = boto3.resource('s3', aws_access_key_id=user, aws_secret_access_key=AWS_SECRET_KEY)
     my_bucket = s3_resource.Bucket(bucket_name)
     my_bucket.Object(output_path).put(Body=buffer.getvalue(), ContentType='image/jpeg') # can put name of file here
+AWS_SECRET_KEY
