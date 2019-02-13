@@ -34,6 +34,11 @@ def name_to_id(class_name):
 def id_to_name(class_id):
     return class_id.replace('+', ' ')
 
+def get_classes():
+    class_ids = d.find_one({'_id': 'classes'})['children']
+    return [d.find_one({'_id': id})['name'] for id in class_ids]
+
+
 def approve(author_id, course_name, teacher_name, author_name, date, email, file_names):
     author = d.find_one({'_id': ObjectId(author_id)})
     teacher = d.find_one({'_id': author['parent']})
@@ -206,7 +211,7 @@ def admin():
 
 @application.route("/")
 def index():
-	classes = getClasses()
+	classes = get_classes()
 	return render_template("index.html", classes=classes)
 
 @application.route("/share")
@@ -219,7 +224,7 @@ def shareForm():
 
 @application.route("/class/<course>")
 def note(course):
-	classes = getClasses()
+	classes = get_classes()
 	for c_spaces in classes:
 		c=c_spaces.replace(' ','')
 		if c == course:
@@ -233,7 +238,7 @@ def teach(string):
 	# check if input is good
 	if len(s) != 3:
 		abort(404)
-	classes = getClasses()
+	classes = get_classes()
 	for c in classes:
 		c_cut = c.replace(' ','')
 		if c_cut==s[0]:
