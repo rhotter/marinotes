@@ -1,21 +1,27 @@
-from flask import Flask, render_template, redirect, abort, request
+from flask import Flask, render_template, redirect, abort, request, url_for
 from movement import getClasses, getInfo, getNotes, submitNote, rejectNote, acceptNote, uploadFile, deleteFile
 from flask_pymongo import PyMongo
 from config import S3_KEY, S3_SECRET, S3_BUCKET
 from werkzeug.utils import secure_filename
 import boto3
 from secret import MONGO_URI, bucket_name, user, AWS_SECRET_KEY, password
-
-# S3_BUCKET = os.environ.get("S3_BUCKET_NAME")
-# S3_KEY = os.environ.get("S3_ACCESS_KEY")
-# S3_SECRET = os.environ.get("S3_SECRET_ACCESS_KEY")
+# from flask_login import LoginManager, login_required, UserMixin, login_user
+from flask_basicauth import BasicAuth
+from bson.objectid import ObjectId
 
 application = Flask(__name__)
+
+application.config['BASIC_AUTH_USERNAME'] = 'simon'
+application.config['BASIC_AUTH_PASSWORD'] = password
+
+basic_auth = BasicAuth(application)
+
 
 """
 MongoDB
 """
 
+application.secret_key = 'super secret key'
 application.config["MONGO_URI"] = MONGO_URI
 
 with application.app_context():
@@ -23,12 +29,39 @@ with application.app_context():
     d = mongo.db.classes
 
 def name_to_id(class_name):
-    return class_name.replace(' ', '%20')
+    return class_name.replace(' ', '+')
 
 def id_to_name(class_id):
-    return class_id.replace('%20', ' ')
+    return class_id.replace('+', ' ')
 
-def upload_notes(class_name, teacher, author, date, file_names, approved=False):
+def approve(author_id, course_name, teacher_name, author_name, date, email, file_names):
+    author = d.find_one({'_id': ObjectId(author_id)})
+    teacher = d.find_one({'_id': author['parent']})
+    course = d.find_one({'_id': teacher['parent']})
+    for i, file_id in enumerate(author['children']):
+        d.update_one({'_id': file_id}, # update files
+                     {'$set':
+                         {'name': file_names[i],
+                          'approved': True}})
+    d.update_one({'_id': author['_id']}, # update author
+                 {'$set':
+                     {'name': author_name,
+                      'email': email,
+                      'date': date,
+                      'approved': True}})
+    d.update_one({'_id': teacher['_id']}, # update teacher
+                 {'$set':
+                     {'name': teacher_name,
+                      'approved': True}})
+    d.update_one({'_id': course['_id']}, # update course
+                 {'$set':
+                     {'name': course_name,
+                      'approved': True}})
+
+def upload_notes(class_name, teacher, author, date, file_names, email, approved=False):
+    if not d.find_one({'_id': 'classes'}):
+        d.insert({'_id': 'classes', 'children': []})
+
     # Figure out how much has already been stored
     class_info = d.find_one({'_id': name_to_id(class_name)})
     teacher_info = None
@@ -39,31 +72,32 @@ def upload_notes(class_name, teacher, author, date, file_names, approved=False):
         # if teacher_id_array:
         #     teacher_info = d.find_one({'$or': teacher_id_array})
     else:
-        class_info_id = d.insert({'_id': name_to_id(class_name),
-                               'type': 'class',
-                               'class': class_name,
+        class_info_id = d.insert({'type': 'class',
+                               'name': class_name,
                                'children': [],
                                'parent': 'classes',
-                               'approved': True })
+                               'approved': approved })
         class_info = d.find_one({'_id': class_info_id})
         class_list = d.find_one({'_id': 'classes'})
+        class_list['children'].append(class_info['_id'])
         d.update_one({'_id': 'classes'},
                      {'$set':
                          {'children':
-                             class_list['children'].append(class_info['_id'])}})
+                             class_list['children']}})
     if not teacher_info:
         existing_teacher = False
         teacher_info_id = d.insert({'type': 'teacher',
-                                 'teacher': teacher,
+                                 'name': teacher,
                                  'children': [],
                                  'parent': class_info['_id'],
                                  'approved': approved })
         teacher_info = d.find_one({'_id': teacher_info_id})
 
     author_info_id = d.insert({'type': 'author',
-                            'author': author,
+                            'name': author,
                             'date': date,
                             'children': [],
+                            'email': email,
                             'parent': teacher_info['_id'],
                             'approved': approved })
     author_info = d.find_one({'_id': author_info_id})
@@ -81,10 +115,12 @@ def upload_notes(class_name, teacher, author, date, file_names, approved=False):
                  {'$set':
                     {'children': file_ids}
                  })
+
+    teacher_info['children'].append(author_info['_id'])
     d.update_one({'_id': teacher_info['_id']},
               {'$set':
                  {'children':
-                     teacher_info['children'].append(author_info['_id'])}
+                     teacher_info['children']}
               })
     if not existing_teacher:
         d.update_one({'_id': class_info['_id']},
@@ -122,37 +158,51 @@ def upload_test_post():
     class_name = request.form['course']
     teacher = request.form['teacher']
     author = request.form['author']
+    email = 'sample@gmail.com'
     date = ''
-    base_url = '{}/{}/{}/'.format(class_name, teacher, author)
+    base_url = 'Notes/marinotes-pdfs/{}/{}/{}/'.format(class_name, teacher, author)
     file_names = []
     for file in files:
         file.filename = secure_filename(file.filename)
         file_names.append(file.filename)
         url = base_url + file.filename
         upload_file(file, url)
-    upload_notes(class_name, teacher, author, date, file_names, approved=False)
+    upload_notes(class_name, teacher, author, date, file_names, email,
+                 approved=False)
     return 'uploaded'
 
-@application.route("/admin", methods=["GET", "POST"])
+@application.route("/admin-post", methods=["POST"])
+def admin_post():
+    checked_ids = request.form.getlist('checkbox')
+    for id in checked_ids:
+        course = request.form['course-{}'.format(id)]
+        teacher = request.form['teacher-{}'.format(id)]
+        author = request.form['author-{}'.format(id)]
+        date = request.form['date-{}'.format(id)]
+        email = request.form['email-{}'.format(id)]
+        files = request.form.getlist('file-{}'.format(id))
+        approve(id, course, teacher, author, date, email, files)
+    return redirect(url_for('admin'))
+
+@application.route("/admin")
+@basic_auth.required
 def admin():
-    error = None
-    if request.method == "POST":
-        if request.form['password'] == password:
-            submissions = [{'course': 'Linear Algebra',
-                            'teacher': 'Riccardo Catalano',
-                            'author': 'Raffi Hotter',
-                            'date': 'March 1, 2018',
-                            'files': ['Notes-1.pdf', 'Notes-2.pdf']},
-                           {'course': 'Linear Algebra',
-                            'teacher': 'Riccardo Catalano',
-                            'author': 'Raffi Hotter',
-                            'date': 'March 1, 2018',
-                            'files': ['Notes-1.pdf', 'Notes-2.pdf']}
-                            ]
-            return render_template("admin.html", submissions=submissions)
-        else:
-            error = "Incorrect password"
-    return render_template("admin-login.html", error=error)
+    submissions = []
+    notes = d.find({'type': 'author', 'approved': False})
+    for author in notes:
+        teacher = d.find_one({'_id': author['parent']})
+        course = d.find_one({'_id': teacher['parent']})
+        files = [d.find_one({'_id': file}) for file in author['children']]
+        date = author['date']
+        email = author['email']
+        submissions.append({'id': author['_id'],
+                            'course': course['name'],
+                            'teacher': teacher['name'],
+                            'author': author['name'],
+                            'date': date,
+                            'email': email,
+                            'files': files})
+    return render_template("admin.html", submissions=submissions)
 
 @application.route("/")
 def index():
@@ -214,3 +264,28 @@ if __name__ == "__main__":
     # removed before deploying a production app.
     application.debug = False
     application.run()
+
+
+    # submissions = [{'course': 'Linear Algebra',
+    #                 'teacher': 'Riccardo Catalano',
+    #                 'author': 'Raffi Hotter',
+    #                 'date': 'March 1, 2018',
+    #                 'files': ['Notes-1.pdf', 'Notes-2.pdf']},
+    #                {'course': 'Linear Algebra',
+    #                 'teacher': 'Riccardo Catalano',
+    #                 'author': 'Raffi Hotter',
+    #                 'date': 'March 1, 2018',
+    #                 'files': ['Notes-1.pdf', 'Notes-2.pdf']}
+    #                 ]
+
+# @application.route("/login", methods=["GET", "POST"])
+# def login():
+#     error=None
+#     if request.method == "POST":
+#         if request.form['password'] == password:
+#             user = User(1)
+#             login_user(user)
+#             return redirect(url_for('admin'))
+#         else:
+#             error = "Incorrect password"
+#     return render_template("admin-login.html", error=error)
